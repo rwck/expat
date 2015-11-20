@@ -1,28 +1,95 @@
-== README
+# Ex pat website notes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`rails new expat --skip-turbolinks --database=postgresql`
 
-Things you may want to cover:
+## Rails -  this is all backend stuff
 
-* Ruby version
+* Devise for authentication
 
-* System dependencies
+## Models
+User - has many I wants
+I want (looking for) - belongs to user
+I’ve got (offering) - belongs to user
 
-* Configuration
+-------- compare User1 I want with All Users I’ve got
 
-* Database creation
+Views
+Results
+Users list
+User details
+Clickable - give more details
+No results view - populated from a search on Google / something
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+API
+Google Maps (show the Users address details on map)
+Flickr for pictures of places around user wants geography
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Fields for User model
+
+Name
+Email
+Contact number
+Language
+Gender
+Current location
+Date of birth
+Status: married / single / kids
+Education
+Profession
+Work type (if self employed, need ABN etc)
+
+I want model / fields
+Language -
+Place I want to know about (travel)
+What kind of professional am I looking for (eg plumber)
+When
+
+I’ve got model / fields
+Language -
+Place I want to know about (travel)
+What kind of professional am I looking for (eg plumber)
+When
+
+
+Backbone - this is front end stuff
+
+Models
+
+Collections
+
+
+Views
+	Results - list of people / restaurants etc
+	View on API information
+	Login / Signup page
+
+
+Router
+
+App Javascript file
+
+Home page(inside Rails)
+	Templates
+
+Search functionality is in here
+
+
+
+
+
+Maybe look at these APIs
+
+http://www.meetup.com/meetup_api/
+https://developers.facebook.com/
+
+
+Another site to look at:
+
+http://www.transitionsabroad.com/listings/living/living_abroad/living_abroad_by_country.shtml
+
+https://developers.google.com/blogger/
+
+http://instagram.com/developer/
+
+https://dev.twitter.com/
