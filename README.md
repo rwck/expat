@@ -4,10 +4,19 @@
 ## Create the new rails app
 `rails new expat --skip-turbolinks --database=postgresql`
 
-## Add useful gems to the Gemfile now
+## Add useful gems to the Gemfile
 
+```
+group :development do
+  gem 'pry-rails'         # makes rails console nicer
+  gem 'annotate'          # writes useful comments on your models
+  gem 'quiet_assets'      # cleans up your logging output
+  gem 'better_errors'     # explains itself... hopefully
+end
 
+gem 'puma'
 
+```
 
 ## Create the scaffold
 
