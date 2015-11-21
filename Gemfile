@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+source 'https://rubygems.org'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -43,3 +45,11 @@ group :development do
   gem 'spring'
 end
 
+group :development do
+  gem 'pry-rails'         # makes rails console nicer
+  gem 'annotate'          # writes useful comments on your models
+  gem 'quiet_assets'      # cleans up your logging output
+  gem 'better_errors'     # explains itself... hopefully
+end
+
+gem 'puma'
