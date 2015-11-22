@@ -12,4 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+
+
+
+//=require underscore-min.js
+//=require backbone-min.js
+
+//= require_tree ./backbone_js/models
+//= require_tree ./backbone_js/collections
+//= require_tree ./backbone_js/routers
+//= require_tree ./backbone_js/views
+//=require init.js
+
+
+//= require_self
+
+$(document).ready(function(){
+  app.init();
+})

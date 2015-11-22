@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def home
+    @testing = "This is Donald testing how this works. Here is variable coming from Rails"
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

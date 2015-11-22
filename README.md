@@ -22,6 +22,59 @@ gem 'puma'
 
 `rails generate scaffold user firstname lastname email:uniq language gender current_location search_history date_of_birth:date education profession other_information: text`
 
+
+## Create and migrate the database
+
+`rake db create`
+`rake db migrate`
+
+## Set up live reloading for development
+
+```
+group :development do
+  gem 'guard-livereload', '~> 2.4', require: false
+end
+
+```
+
+## Add guard definition to Guardfile by running
+
+`guard init livereload`
+
+## Add to the Gemfile
+
+`gem "rack-livereload", :group => :development`
+
+## Add to config/environments/development.rb
+
+```
+MyApp::Application.configure do
+  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
+  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
+  # ...
+end
+```
+
+## Add to the Gemfile
+```
+group :development do
+  gem 'guard'
+end
+
+```
+
+## Run the guard app
+
+* `bundle exec guard init`
+* `bundle exec guard`
+
+
+
+
+
+
+
 ## Rails -  this is all backend stuff
 
 * Devise for authentication

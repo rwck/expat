@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.name {
+  font-family: monospace;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.name-table, th, td {
+  border: 1px dotted black;
+  padding: 0.5em;
+}
