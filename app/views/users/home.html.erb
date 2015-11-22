@@ -12,7 +12,6 @@
 </script>
 
 <div>
-
   <h1>Hello Ex Pats</h1>
   <%= @testing %>
 </div>
@@ -67,6 +66,8 @@
     </div>
   </script>
 
+  <% if false %>
+
   <script id="table-template" type="text/template">
     <table class="name-table">
       <thead>
@@ -81,6 +82,7 @@
         </tr>
       </thead>
       <tbody>
+
         <%% users.each(function (user) { %>
           <tr>
             <td class="firstname">
@@ -96,3 +98,5 @@
         </tbody>
       </table>
     </script>
+
+    <% end %>

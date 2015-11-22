@@ -22,17 +22,13 @@ app.NewUserFormView = Backbone.View.extend({
     alert(newUserFirstName);
     alert(newUserLastName);
 
-    var myNewUser = new app.UserModel({
+    myNewUser = new app.UserModel({
       firstname: newUserFirstName,
       lastname: newUserLastName,
     });
 
-    console.log(myNewUser);
-    myNewUser.save({
-      success: function(myNewUser) {
-        alert("Successfully saved ", myNewUser, "!")
-      }
-    });
+    myNewUser.save();
+
     return false;
   },
 });
