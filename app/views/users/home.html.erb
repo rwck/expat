@@ -1,4 +1,18 @@
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+  function initialiseGmaps() {
+    var mapProp = {
+      center: new google.maps.LatLng(51.508742, -0.120850),
+      zoom: 5,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    google.maps.event.addDomListener(window, 'load', initialiseGmaps);
+  }
+</script>
+
 <div>
+
   <h1>Hello Ex Pats</h1>
   <%= @testing %>
 </div>
@@ -9,6 +23,7 @@
   <p>
     This is some text.
   </p>
+  <div class="map-box" id="googleMap" style="width:500px;height:380px;"></div>
 </div>
 
 <div id="main-div"></div>
@@ -34,77 +49,50 @@
     This
   </p>
   <hr>
-  <table class="name-table">
-    <thead>
-      <tr>
-        <th class="name">
-          <span class="name">First name</span>
-        </th>
+  <div id="put-table-here"></div>
+  <hr>
 
-        <th class="name">
-          <span class="name">Last name</span>
-        </th>
-      </tr>
-      <tr>
-        <td class="firstname"></td>
-        <td class="lastname"></td>
-      </tr>
+  <!-- Template for form -->
 
-      <script id="first-name-template" type="text/template">
+  <script id="enter-new-user-form-template" type="text/template">
+    <div>
+
+      <form>
+        <input class="form-field" id="firstname-input-field" placeholder="First name" type="text">
+        <br>
+        <input class="form-field" id="lastname-input-field" placeholder="Last name" type="text">
+        <br>
+        <button class="new-user-submit-button">Submit</button>
+      </form>
+    </div>
+  </script>
+
+  <script id="table-template" type="text/template">
+    <table class="name-table">
+      <thead>
         <tr>
-          <td><%%= firstname %></td>
+          <th class="name">
+            <span class="name">First name</span>
+          </th>
+
+          <th class="name">
+            <span class="name">Last name</span>
+          </th>
         </tr>
-      </script>
+      </thead>
+      <tbody>
+        <%% users.each(function (user) { %>
+          <tr>
+            <td class="firstname">
+              <%%= user.get("firstname") %>
+            </td>
+            <td class="lastname">
+              <%%= user.get("lastname") %>
+            </td>
 
-      <script id="last-name-template" type="text/template">
-        <tr>
-          <td><%%= lastname %></td>
-        </tr>
-      </script>
-    </tr>
+          </tr>
+          <%% }); %>
 
-  </tr>
-</thead>
-
-<% if false %>
-
-<tfoot>
-  <tr>
-    <td>
-      This is a footer for a table
-    </td>
-    <td>
-      This is a footer for a table
-    </td>
-  </tr>
-</tfoot>
-</tfoot>
-
-<% end %>
-
-</table>
-<hr>
-
-<br>
-
-</div>
-</script>
-
-<div class="text-box">
-Something
-</div>
-
-<!-- Template for form -->
-
-<script id="enter-new-user-form-template" type="text/template">
-<div>
-
-<form>
-<input class="form-field" id="firstname-input-field" placeholder="First name" type="text">
-<br>
-<input class="form-field" id="lastname-input-field" placeholder="Last name" type="text">
-<br>
-<button class="new-user-submit-button">Submit</button>
-</form>
-</div>
-</script>
+        </tbody>
+      </table>
+    </script>

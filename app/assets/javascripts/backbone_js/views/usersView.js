@@ -8,6 +8,17 @@ app.UsersView = Backbone.View.extend({
 
   render: function() {
     console.log("Rendering Users View");
+
+    var tableTemplate = _.template($("#table-template").html());
+
+    var pageContents = tableTemplate({users: this.collection});
+
+    $("#put-table-here").html(pageContents);
+
+
+    return
+
+
     // console.log(testClass);
     firstNameTemplate = _.template($("#first-name-template").html(), {});
     firstNameID = $(".firstname");
@@ -22,7 +33,3 @@ app.UsersView = Backbone.View.extend({
     }
   }
 });
-
-
-// <td class="last-name"></td>
-// myLastName.append(myTemplate(models[i].attributes));

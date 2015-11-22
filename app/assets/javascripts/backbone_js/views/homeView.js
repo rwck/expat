@@ -6,7 +6,7 @@ app.HomeView = Backbone.View.extend({
   // template: _.template($("#backbone-template").html(), {}),
 
   render: function() {
-    console.log("rendering  app.homeview ");
+    console.log("rendering app.homeview ");
     var models = this.collection.models;
     for (var i = 0; i < models.length; i++) {
       // var template = _.template($("#backbone-template").html(), {});
