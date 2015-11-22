@@ -1,59 +1,124 @@
 <p id="notice"><%= notice %></p>
 
+<script id="backbone-template" type="text/template">
+  <div id="template-1">
+    <h1>Here is a title</h1>
+    <p>
+      And here is some more stuff. This is coming from the Backbone template.
+    </p>
+    <p>
+      <hr>
+      <table class="name-table">
+        <thead>
+          <tr>
+            <th class="name">
+              <span class="name">First name</span>
+            </th>
+            <th class="name">
+              <span class="name">Last name</span>
+            </th>
+          </tr>
+        </thead>
+        <tr>
+          <td><%%= firstname %></td>
+          <td><%%= lastname %></td>
+        </tr>
+        <tfoot>
+          <tr>
+            <td>
+              This is a footer for a table
+            </td>
+            <td>
+              This is a footer for a table
+            </td>
+          </tr>
+        </tfoot>
+      </tfoot>
+
+      <tr>
+        <thead></thead>
+
+      </tr>
+    </table>
+
+    <br>
+
+  </p>
+
+</div>
+</script>
+
+<script id="enter-new-user-form-template" type="text/template">
+<div>
+  <form>
+    <input class="form-field" placeholder="First name" type="text">
+    <br>
+    <input class="form-field" placeholder="Last name" type="text">
+    <br>
+    <button>Submit</button>
+  </form>
+</div>
+</script>
+
+<% if false %>
+
 <p>
-  <strong>Firstname:</strong>
-  <%= @user.firstname %>
+<strong>Firstname:</strong>
+<%= @user.firstname %>
 </p>
 
 <p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
+<strong>Lastname:</strong>
+<%= @user.lastname %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+<strong>Email:</strong>
+<%= @user.email %>
 </p>
 
 <p>
-  <strong>Language:</strong>
-  <%= @user.language %>
+<strong>Language:</strong>
+<%= @user.language %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
+<strong>Gender:</strong>
+<%= @user.gender %>
 </p>
 
 <p>
-  <strong>Current location:</strong>
-  <%= @user.current_location %>
+<strong>Current location:</strong>
+<%= @user.current_location %>
 </p>
 
 <p>
-  <strong>Search history:</strong>
-  <%= @user.search_history %>
+<strong>Search history:</strong>
+<%= @user.search_history %>
 </p>
 
 <p>
-  <strong>Date of birth:</strong>
-  <%= @user.date_of_birth %>
+<strong>Date of birth:</strong>
+<%= @user.date_of_birth %>
 </p>
 
 <p>
-  <strong>Education:</strong>
-  <%= @user.education %>
+<strong>Education:</strong>
+<%= @user.education %>
 </p>
 
 <p>
-  <strong>Profession:</strong>
-  <%= @user.profession %>
+<strong>Profession:</strong>
+<%= @user.profession %>
 </p>
 
 <p>
-  <strong>Other information:</strong>
-  <%= @user.other_information %>
+<strong>Other information:</strong>
+<%= @user.other_information %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %>
+|
 <%= link_to 'Back', users_path %>
+
+<% end %>

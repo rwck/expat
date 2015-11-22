@@ -2,14 +2,36 @@
   box-sizing: border-box;
 }
 
+$heading-text: Raleway, sans-serif;
+$body-text: Roboto, sans-serif;
+
+@mixin my-heading {
+  font-family: $heading-text;
+/*   font-size: 1.5rem;
+ */  font-weight: 700;
+/*   padding: 0.5rem 0;
+ */}
+
+@mixin my-body-text {
+  font-family: $body-text;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+h1 {
+  @include my-heading;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
 }
 
 .name {
-  font-family: monospace;
-  font-size: 1.5em;
+  @include my-heading;
+  font-size: 1.5rem;
   text-align: left;
 }
 

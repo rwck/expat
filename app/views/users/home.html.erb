@@ -1,54 +1,110 @@
-<div id="main-div">
+<div>
   <h1>Hello Ex Pats</h1>
-
   <%= @testing %>
 </div>
 
-<script id="backbone-template" type="text/template">
-  <div id="template-1">
-    <h1>Here is a title</h1>
-    <p>
-      And here is some more stuff.
-    </p>
-    <p>
-      <hr>
-      <table class="name-table">
-        <thead>
-          <tr>
-            <th class="name">
-              <span class="name">First name</span>
-            </th>
-            <th class="name">
-              <span class="name">Last name</span>
-            </th>
-          </tr>
-        </thead>
+<!-- Structure of page -->
+
+<div id="test-div">
+  <p>
+    This is some text.
+  </p>
+</div>
+
+<div id="main-div"></div>
+<div id="new-user-form"></div>
+<div id="test"></div>
+
+<!-- Templates -->
+
+<script id="table-rows" type="text/template">
+  <tr></tr>
+  <tr></tr>
+</script>
+
+<div id="template-1">
+  <div class="testclass">
+    Here is some stuff
+  </div>
+  <h1>Here is a title</h1>
+  <p>
+    And here is some more stuff. This is coming from the Backbone template.
+  </p>
+  <p>
+    This
+  </p>
+  <hr>
+  <table class="name-table">
+    <thead>
+      <tr>
+        <th class="name">
+          <span class="name">First name</span>
+        </th>
+
+        <th class="name">
+          <span class="name">Last name</span>
+        </th>
+      </tr>
+      <tr>
+        <td class="firstname"></td>
+        <td class="lastname"></td>
+      </tr>
+
+      <script id="first-name-template" type="text/template">
         <tr>
           <td><%%= firstname %></td>
+        </tr>
+      </script>
+
+      <script id="last-name-template" type="text/template">
+        <tr>
           <td><%%= lastname %></td>
         </tr>
-        <tfoot>
-          <tr>
-            <td>
-              This is a footer for a table
-            </td>
-            <td>
-              This is a footer for a table
-            </td>
-          </tr>
-        </tfoot>
+      </script>
+    </tr>
 
-      </tfoot>
+  </tr>
+</thead>
 
-      <tr>
-        <thead></thead>
+<% if false %>
 
-      </tr>
-    </table>
+<tfoot>
+  <tr>
+    <td>
+      This is a footer for a table
+    </td>
+    <td>
+      This is a footer for a table
+    </td>
+  </tr>
+</tfoot>
+</tfoot>
 
-    <br>
+<% end %>
 
-  </p>
+</table>
+<hr>
 
+<br>
+
+</div>
+</script>
+
+<div class="text-box">
+Something
+</div>
+
+<!-- Template for form -->
+
+<script id="enter-new-user-form-template" type="text/template">
+<div>
+
+<form>
+<input class="form-field" id="firstname-input-field" placeholder="First name" type="text">
+<br>
+<input class="form-field" id="lastname-input-field" placeholder="Last name" type="text">
+<br>
+<button class="new-user-submit-button">Submit</button>
+</form>
 </div>
 </script>

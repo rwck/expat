@@ -15,8 +15,8 @@
 
 
 
-//=require underscore-min.js
-//=require backbone-min.js
+//= require underscore-min
+//= require backbone-min
 
 //= require_tree ./backbone_js/models
 //= require_tree ./backbone_js/collections
