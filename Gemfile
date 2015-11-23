@@ -47,6 +47,7 @@ group :development do
   gem 'annotate'          # writes useful comments on your models
   gem 'quiet_assets'      # cleans up your logging output
   gem 'better_errors'     # explains itself... hopefully
+  gem 'seed_dump'
 end
 
 group :development do
