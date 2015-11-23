@@ -17,34 +17,31 @@ app.NewUserFormView = Backbone.View.extend({
   },
 
   clicked: function(event) {
+    event.preventDefault();
     var newUserFirstName = $("#firstname-input-field").val();
     var newUserLastName = $("#lastname-input-field").val();
-    alert(newUserFirstName);
-    alert(newUserLastName);
+    var newUserLocation = $("#address-input-field").val()
+    console.log(newUserFirstName);
+    console.log(newUserLastName);
+    console.log(newUserLocation);
 
-    var myNewUser = new app.UserModel({
+    // myNewUser = new app.UserModel({
+    //   firstname: newUserFirstName,
+    //   lastname: newUserLastName,
+    //   current_location: newUserLocation,
+    // });
+
+    // console.log(myNewUser);
+    // myNewUser.save();
+
+
+    this.collection.create({
       firstname: newUserFirstName,
       lastname: newUserLastName,
+      current_location: newUserLocation,
     });
 
-    console.log(myNewUser);
-    myNewUser.save({
-      success: function(myNewUser) {
-        alert("Successfully saved ", myNewUser, "!")
-      }
-    });
-    return false;
+
+
   },
 });
-
-
-//   firstname: newUserFirstName,
-//   lastname: newUserLastName,
-//   success: function(myNewUser) {
-//     alert(newUserFirstName);
-//   },
-//   error: function(myNewUser) {
-//     alert("FAiled");
-//     console.log();
-//   }
-// });

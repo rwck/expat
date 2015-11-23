@@ -12,40 +12,30 @@ app.init = function() {
     lastname: "Puddleduck"
   });
 
-  app.myUserCollection = new app.UserCollection([
-    app.user1,
-    app.user2
-  ]);
+  app.myUserCollection = new app.UserCollection();
+
+  app.myUserCollection.fetch({
+    success: function() {
+      app.myUsersView.render()
+  }});
 
 
+  // # init in here
 
   app.myHomeView = new app.HomeView({
     collection: app.myUserCollection,
     model: app.myUserModel
   });
+
   app.myHomeView.render();
 
   app.myNewUserFormView = new app.NewUserFormView({
+    collection: app.myUserCollection,
   });
+
   app.myNewUserFormView.render();
 
   app.myUsersView = new app.UsersView({
     collection: app.myUserCollection
   })
-}
-
-user1 = {
-
-}
-user2 = {
-
-}
-
-
-function setupStartingData() {
-  var users = {
-
-  }
-  return users["user1"]
-
 }

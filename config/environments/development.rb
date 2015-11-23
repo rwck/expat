@@ -37,8 +37,15 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
-  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 
+
+# THIS IS THE STUFF NEEDED TO GET THE GUARD SERVER TO LISTEN
+
+
+# config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
+
+# END OF THE STUFF NEEDED TO GET THE GUARD SERVER TO LISTEN
   # ...
 
   # Raises error for missing translations

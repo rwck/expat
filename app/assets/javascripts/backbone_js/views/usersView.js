@@ -5,7 +5,6 @@ app.UsersView = Backbone.View.extend({
   // url
   // el: "#backbone-template",
   // template: _.template($("#backbone-template").html(), {}),
-
   render: function() {
     console.log("Rendering Users View");
 
