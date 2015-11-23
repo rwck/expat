@@ -57,6 +57,8 @@ app.GoogleView = Backbone.View.extend({
             data: htmlLookUpString,
           });
 
+          console.log(ajaxResults);
+
           function logResults() {
             console.log(ajaxResults)
           };

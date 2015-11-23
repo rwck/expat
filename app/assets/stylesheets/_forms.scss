@@ -24,6 +24,33 @@ input[type="email"] {
   width: 50%;
 }
 
+.form-field:hover {
+  background-color: #703166;
+  color: #FDE8C9;
+}
+
+.form-field:focus {
+  outline: none;
+  background-color: #FDE8C9;
+  color: #703166;
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color:    #703166;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    #909;
+     opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:    #909;
+     opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color:    #909;
+  }
+
+}
+
 .new-user-submit-button {
   @include my-body-text;
   font-size: 1rem;
