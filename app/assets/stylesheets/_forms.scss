@@ -1,8 +1,42 @@
 input[type="text"] {
   @include my-body-text;
+  text-align: right;
+  border: none;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 0.5rem 0;
+}
+
+input[type="email"] {
+  @include my-body-text;
+  text-align: right;
+  border: none;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 0.5rem 0;
+}
+
+.button-box {
+  position: relative;
+  width: 50%;
+}
+
+.form-field {
+  width: 50%;
 }
 
 button {
   @include my-body-text;
-  background-color: blue;
+  border: none;
+  display: inline-block;
+  background-color: yellow;
+  position: absolute;
+  right: 0px;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+button:active {
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none;
 }

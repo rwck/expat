@@ -1,23 +1,45 @@
-<script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
-  function initialiseGmaps() {
-    var mapProp = {
-      center: new google.maps.LatLng(51.508742, -0.120850),
-      zoom: 5,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    google.maps.event.addDomListener(window, 'load', initialiseGmaps);
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('googleMap'), {
+      zoom: 8,
+      center: {
+        lat: -34.397,
+        lng: 150.644
+      }
+    });
+    var geocoder = new google.maps.Geocoder();
+
+    document.getElementById('submit').addEventListener('click', function () {
+      geocodeAddress(geocoder, map);
+    });
+  }
+
+  function geocodeAddress(geocoder, resultsMap) {
+    var address = document.getElementById('address-input-field').value;
+    geocoder.geocode({
+      'address': address
+    }, function (results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
+        });
+      } else {alert('Geocode was not successful for the following reason: ' + status);}
+    });
   }
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=initMap"></script>
 
+</div>
+
+<div class="container">
 
 <header>
-<div class="header-title">
-
-  <h1>Hello Ex Pats</h1>
-  <%= @testing %>
-</div>
+  <div class="header-title">
+    <h1>Hello Ex Pats</h1>
+    <%= @testing %>
+  </div>
 </header>
 
 <!-- Structure of page -->
@@ -26,7 +48,7 @@
   <p>
     This is some text.
   </p>
-  <div class="map-box" id="googleMap" style="width:500px;height:380px;"></div>
+  <div class="map-box" id="googleMap" style="width:50%;height:40vh;"></div>
 </div>
 
 <div id="main-div"></div>
@@ -61,46 +83,54 @@
     <div>
 
       <form>
-        <input class="form-field" id="firstname-input-field" placeholder="First name" type="text">
+        <input class="form-field" id="firstname-input-field" placeholder="first name" type="text">
         <br>
-        <input class="form-field" id="lastname-input-field" placeholder="Last name" type="text">
+        <input class="form-field" id="lastname-input-field" placeholder="last name" type="text">
         <br>
-        <button class="new-user-submit-button">Submit</button>
-      </form>
-    </div>
-  </script>
-
-  <% if false %>
-
-  <script id="table-template" type="text/template">
-    <table class="name-table">
-      <thead>
-        <tr>
-          <th class="name">
-            <span class="name">First name</span>
-          </th>
-
-          <th class="name">
-            <span class="name">Last name</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-
-        <%% users.each(function (user) { %>
-          <tr>
-            <td class="firstname">
-              <%%= user.get("firstname") %>
-            </td>
-            <td class="lastname">
-              <%%= user.get("lastname") %>
-            </td>
-
-          </tr>
-          <%% }); %>
-
-        </tbody>
-      </table>
+        <input class="form-field" id="lastname-input-field" placeholder="email" type="email">
+        <br>
+        <input class="form-field" id="address-input-field" placeholder="your location" type="text">
+        <br>
+        <div class="button-box">
+          <button class="new-user-submit-button" id="submit">Submit</button>
+        </form>
+      </div>
     </script>
 
-    <% end %>
+    <script id="table-template" type="text/template">
+      <table class="name-table">
+        <thead>
+          <tr>
+            <th class="name">
+              <span class="name">First name</span>
+            </th>
+
+            <th class="name">
+              <span class="name">Last name</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <%% users.each(function (user) { %>
+            <tr>
+              <td class="firstname">
+                <%%= user.get("firstname") %>
+              </td>
+              <td class="lastname">
+                <%%= user.get("lastname") %>
+              </td>
+
+            </tr>
+            <%% }); %>
+
+          </tbody>
+        </table>
+      </script>
+
+      <script>
+        // $(document).ready(function () {
+        //   initialiseGmaps()
+        // })
+      </script>
+    </div>
