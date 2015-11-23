@@ -2,6 +2,13 @@ var app = app || {}
 
 app.UsersView = Backbone.View.extend({
   el: $("#test"),
+
+  initialize: function() {
+    this.listenTo(this.collection, "all", function(event) {
+      console.log("User List event happening", event);
+    })
+    this.listenTo(this.collection, "update", this.render);
+  },
   // url
   // el: "#backbone-template",
   // template: _.template($("#backbone-template").html(), {}),

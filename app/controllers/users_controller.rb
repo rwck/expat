@@ -5,7 +5,16 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+
   end
+
+
+#   @params = params
+#   respond_to do |format|
+#     format.json { render :show, status: :ok, location: # @params }
+
+
+
 
   def home
     @testing = "This is Donald testing how this works. Here is variable coming from Rails"

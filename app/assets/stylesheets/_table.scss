@@ -1,0 +1,28 @@
+.name {
+  font-size: 1rem;
+}
+
+.name-table {
+  width: 50%;
+  background-color: white;
+  box-shadow: 3px 3px 8px 0 rgba(50, 50, 50, 0.75);
+}
+
+.name-table,
+th,
+td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.name-table,
+th {
+  margin: 0;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.name-table,
+td {
+  font-size: 1rem;
+}

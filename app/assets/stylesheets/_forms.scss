@@ -17,14 +17,17 @@ input[type="email"] {
 .button-box {
   position: relative;
   width: 50%;
+  height: 3rem;
 }
 
 .form-field {
   width: 50%;
 }
 
-button {
+.new-user-submit-button {
   @include my-body-text;
+  font-size: 1rem;
+  padding: 0.75rem;
   border: none;
   display: inline-block;
   background-color: yellow;
@@ -35,6 +38,11 @@ button {
 
 button:active {
   box-shadow: none;
+}
+
+button:hover {
+  background-color: black;
+  color: yellow;
 }
 
 button:focus {

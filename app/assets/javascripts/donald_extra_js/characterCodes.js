@@ -9,6 +9,10 @@ test: function(event) {
 
 },
 
+// The way to do this is to add to the model with each key press and then get the view to update when the model changes.
+// That will be really, really cool when you've got it working.
+
+
 // names of known key codes (0-255)
 
 keyboardMap: [

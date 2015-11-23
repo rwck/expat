@@ -22,7 +22,8 @@
 //= require_tree ./backbone_js/collections
 //= require_tree ./backbone_js/routers
 //= require_tree ./backbone_js/views
-//=require init.js
+
+//= require init.js
 
 
 //= require_self
