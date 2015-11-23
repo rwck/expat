@@ -2,22 +2,23 @@ var app = app || {};
 
 app.init = function() {
 
-  app.user1 = new app.UserModel({
-    firstname: "Trevor",
-    lastname: "Sorbet"
-  });
-
-  app.user2 = new app.UserModel({
-    firstname: "Gemima",
-    lastname: "Puddleduck"
-  });
-
   app.myUserCollection = new app.UserCollection();
+
+  app.mySearchView = new app.SearchView({
+    model: app.UserModel
+  });
 
   app.myUserCollection.fetch({
     success: function() {
-      app.myUsersView.render()
-  }});
+      app.myUsersView.render();
+      app.mySearchView.render();
+    }
+  });
+
+
+
+
+
 
 
   // # init in here
