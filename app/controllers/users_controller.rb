@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def search
+    @daisy = "This is Daisy flickr API testing coming from Rails"
+  end
+
   def home
     @testing = "This is Donald testing how this works. Here is variable coming from Rails"
   end
