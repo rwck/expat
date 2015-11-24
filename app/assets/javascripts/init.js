@@ -12,7 +12,12 @@ app.init = function() {
     lastname: "Puddleduck"
   });
 
+
   app.myUserCollection = new app.UserCollection();
+
+  app.myUsersView = new app.UsersView({
+    collection: app.myUserCollection
+  });
 
   app.myUserCollection.fetch({
     success: function() {
@@ -30,12 +35,10 @@ app.init = function() {
   app.myHomeView.render();
 
   app.myNewUserFormView = new app.NewUserFormView({
-    collection: app.myUserCollection,
+    // model: app.myUserCollection.model
   });
 
   app.myNewUserFormView.render();
 
-  app.myUsersView = new app.UsersView({
-    collection: app.myUserCollection
-  })
+  
 }

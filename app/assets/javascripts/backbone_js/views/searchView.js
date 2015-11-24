@@ -2,7 +2,7 @@ var app = app || {}
 
 app.SearchView = Backbone.View.extend({
 
-  template: _.template($("#search-template").html(), {}),
+  template: _.template( $("#search-template").html() ),
 
   events: {
     "click .search-button": "clicked",
@@ -15,9 +15,8 @@ app.SearchView = Backbone.View.extend({
   },
 
   clicked: function(event) {
-    var newSearch = $("#search-field").val();
+    event.preventDefault();
+    var newSearch = $(".search-input").val();
     alert(newSearch);
-  },
-
-  render: function() {
-    console.log("Rendering Search View");
+  }
+});
