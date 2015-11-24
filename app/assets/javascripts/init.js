@@ -28,7 +28,7 @@ app.init = function() {
   app.myHomeView.render();
 
   app.myNewUserFormView = new app.NewUserFormView({
-    // model: app.myUserCollection.model
+    collection: app.myUserCollection
   });
 
   app.myNewUserFormView.render();
