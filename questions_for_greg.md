@@ -12,6 +12,10 @@
 
 `mergebase`
 
+## Rails devise
+This is difficult with backbone - you end up needing to attach all kinds of stuff in all of your methods to make sure that
+
+App 
 
 * look at EJS gem for rails
 
