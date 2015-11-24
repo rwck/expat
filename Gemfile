@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rmeetup'
+# gem 'rmeetup'
 gem 'httparty'
 
 gem 'rails', '4.2.4'

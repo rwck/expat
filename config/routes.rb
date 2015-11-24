@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   get '/search' => 'users#search'
 
-  post '/' => 'users#meetup'
-  get '/users/meetup' => 'users#meetup'
+  # post '/' => 'users#meetup'
+  # get '/users/meetup' => 'users#meetup'
 
 
   get '/meetup' => 'meetup#search_meetup'

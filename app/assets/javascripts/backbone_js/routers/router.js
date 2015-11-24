@@ -4,11 +4,16 @@ app.Router = Backbone.Router.extend({
   routes: {
     "users/:id" : "usersShow",
     "*other": "userIndex"
+    "meetups/search" : "getMeetups"
   },
 
   usersShow: function(id) {
     console.log("USERS SHOW IS BEING FIRED");
     console.log("id is", id);
+  },
+
+  getMeetups: function() {
+
   }
 
 //     app.router.navigate("#posts/" + route, true);
