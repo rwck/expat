@@ -1,0 +1,124 @@
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.myGoogleView.initMap"></script>
+
+<div class="container">
+
+<header>
+  <div class="header-title">
+    <h1>Hello Ex Pats</h1>
+    <%= @testing %>
+  </div>
+</header>
+
+  <div></div>
+
+  <!-- Structure of page -->
+
+  <div id="test-div">
+    <p>
+      This is some text.
+    </p>
+    <div class="map-box" id="googleMap" style="width:50%;height:40vh;"></div>
+  </div>
+
+  <div id="main-div"></div>
+  <div id="new-user-form"></div>
+  <div id="test"></div>
+
+  <!-- Templates -->
+
+  <script id="table-rows" type="text/template">
+    <tr></tr>
+    <tr></tr>
+  </script>
+
+  <div id="template-1">
+    <div class="testclass">
+      Here is some stuff
+    </div>
+    <div>
+      <h1>Here is a title</h1>
+      <p>
+        And here is some more stuff. This is coming from the Backbone template.
+      </p>
+    </div>
+
+    <hr>
+    <div id="put-table-here"></div>
+    <hr>
+
+    <!-- Template for form -->
+
+    <script id="enter-new-user-form-template" type="text/template">
+      <div>
+
+        <form>
+          <input class="form-field" id="firstname-input-field" placeholder="first name" type="text">
+          <br>
+          <input class="form-field" id="lastname-input-field" placeholder="last name" type="text">
+          <br>
+          <input class="form-field" id="email-input-field" placeholder="email" type="email">
+          <br>
+          <input class="form-field" id="address-input-field" placeholder="your location" type="text">
+          <br>
+          <div class="button-box">
+            <button class="new-user-submit-button" id="submit">Submit</button>
+          </form>
+        </div>
+      </script>
+
+      <script id="table-template" type="text/template">
+        <table class="name-table">
+          <thead>
+            <tr>
+              <th class="name">
+                <span class="name">First name</span>
+              </th>
+              <th class="name">
+                <span class="name">Last name</span>
+              </th>
+              <th class="name">
+                <span class="name">Email</span>
+              </th>
+              <th class="name">
+                <span class="name">Location</span>
+              </th>
+              <th class="name">
+                <span class="name"></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <%% users.each(function (user) { %>
+              <tr>
+                <td class="firstname">
+                  <%%= user.get("firstname") %>
+                </td>
+                <td class="lastname">
+                  <%%= user.get("lastname") %>
+                </td>
+                <td class="email">
+                  <%%= user.get("email") %>
+                </td>
+                <td class="location">
+                  <%%= user.get("current_location") %>
+                </td>
+                <td class="location">
+                  <div class="button-box">
+                    <button class="view-button" id="submit">View</button>
+
+                  </td>
+
+                </tr>
+                <%% }); %>
+
+              </tbody>
+            </table>
+          </script>
+
+          <script>
+            // $(document).ready(function () {
+            //   initialiseGmaps()
+            // })
+          </script>
+        </div>

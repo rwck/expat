@@ -19,7 +19,7 @@ app.FlickrView = Backbone.View.extend({
     if (data.stat !== "fail") {
       var photosArray = data["photos"]["photo"];
       // if you want to change how many images to display, do it here
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 4; i++) {
         var photo = photosArray[i];
         var imageUrl = "https://farm" +
           photo.farm + ".staticflickr.com/" +
