@@ -2,22 +2,16 @@ var app = app || {};
 
 app.init = function() {
 
-  // app.mySearchView = new app.SearchView({
-  //   model: app.UserModel
-  // });
-
   app.myFlickrView = new app.FlickrView({
   });
 
   app.myFlickrView.render();
 
-
+  app.myUserCollection = new app.UserCollection();
 
   app.myUsersView = new app.UsersView({
     collection: app.myUserCollection
   });
-
-  app.myUserCollection = new app.UserCollection();
 
   app.myUserCollection.fetch({
     success: function() {

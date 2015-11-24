@@ -3,17 +3,12 @@ var app = app || {}
 app.FlickrView = Backbone.View.extend({
   el: "#search-template",
 
-  // template: _.template( $("#search-template").html() ),
-
   events: {
     "click .flickr-search": "flickrClicked",
   },
 
   render: function() {
-    console.log("calling render functin for flickr view");
-
-    // var templateResult = this.template(this.model.attributes);
-    // this.$el.html(templateResult);
+    console.log("calling render function for flickr view");
   },
 
   tryDisplay: function(data) {
@@ -23,7 +18,8 @@ app.FlickrView = Backbone.View.extend({
 
     if (data.stat !== "fail") {
       var photosArray = data["photos"]["photo"];
-      for (var i = 0; i < photosArray.length; i++) {
+      // if you want to change how many images to display, do it here
+      for (var i = 0; i < 5; i++) {
         var photo = photosArray[i];
         var imageUrl = "https://farm" +
           photo.farm + ".staticflickr.com/" +
@@ -32,8 +28,6 @@ app.FlickrView = Backbone.View.extend({
         var image = $("<img>");
         image.attr("src", imageUrl);
 
-        // var templateResult = template(imageUrl);
-        // $('.container').html(templateResult);
         $(".image-container").append(image);
       }
     } else {
@@ -47,8 +41,6 @@ app.FlickrView = Backbone.View.extend({
 
     console.log("clickkk!");
     var text = $(".search-input").val();
-    alert(text);
-    // var thisIsMyThis = this;
 
     $.ajax({
       url: "https://api.flickr.com/services/rest/",
@@ -64,7 +56,6 @@ app.FlickrView = Backbone.View.extend({
       },
       success: function(data) {
         console.log("success", data);
-        // thisIsMyThis.tryDisplay(data);
         this.tryDisplay(data);
       },
       error: function(xhr, status, message) {
