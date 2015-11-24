@@ -44,17 +44,35 @@ app.GoogleView = Backbone.View.extend({
           latitude = locationForMeetupSearch.lat()
           longitude = locationForMeetupSearch.lng();
 
-          htmlLookUpString = "https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=";
+          htmlLookUpString = "https://api.meetup.com/find/groups";
+          // key=25423068d7d50102e2030b14583f43&lat=";
 
           console.log(htmlLookUpString);
 
-          htmlLookUpString += latitude.toString() + "&lon=" + longitude.toString();
-          console.log(htmlLookUpString);
+          // htmlLookUpString += latitude.toString() + "&lon=" + longitude.toString();
+          // console.log(htmlLookUpString);
+
+          // $.ajaxSetup({
+          //   headers:
+          // })
 
           ajaxResults = $.ajax({
-            type: "POST",
-            datatype: "jsonp",
-            data: htmlLookUpString,
+            url: htmlLookUpString,
+            dataType: "json",
+            // headers: Backbone.BasicAuth.getHeader({
+            //   Access-Control-Allow-Origin: '*'
+            // }),
+            data: {
+              key: "25423068d7d50102e2030b14583f43",
+              lat: latitude,
+              lon: longitude
+            },
+            complete: function(result) {
+              console.log(result);
+            },
+            error: function(xHR, status, message) {
+              alert(message)
+            }
           });
 
           console.log(ajaxResults);

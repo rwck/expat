@@ -6,6 +6,8 @@
 
 ## JST / EJS - look this up in terms of templating
 
+## REadup on jsonp
+
 * look at EJS gem for rails
 
 ```

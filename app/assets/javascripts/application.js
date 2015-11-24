@@ -17,11 +17,13 @@
 
 //= require underscore-min
 //= require backbone-min
+//= require backbone_basic_auth
 
 //= require_tree ./backbone_js/models
 //= require_tree ./backbone_js/collections
 //= require_tree ./backbone_js/routers
 //= require_tree ./backbone_js/views
+
 
 //= require init.js
 

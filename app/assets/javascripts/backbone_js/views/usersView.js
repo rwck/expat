@@ -24,7 +24,6 @@ app.UsersView = Backbone.View.extend({
 
     return
 
-
     // console.log(testClass);
     firstNameTemplate = _.template($("#first-name-template").html(), {});
     firstNameID = $(".firstname");
