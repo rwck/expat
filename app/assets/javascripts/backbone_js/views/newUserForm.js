@@ -1,6 +1,7 @@
 var app = app || {}
 
 app.NewUserFormView = Backbone.View.extend({
+  collection: app.UserCollection,
   model: app.UserModel,
   el: "#new-user-form",
 

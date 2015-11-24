@@ -2,27 +2,28 @@ var app = app || {};
 
 app.init = function() {
 
-  app.myUserCollection = new app.UserCollection();
+  // app.mySearchView = new app.SearchView({
+  //   model: app.UserModel
+  // });
 
-  app.mySearchView = new app.SearchView({
-    model: app.UserModel
+  app.myFlickrView = new app.FlickrView({
   });
+
+  app.myFlickrView.render();
+
+
 
   app.myUsersView = new app.UsersView({
     collection: app.myUserCollection
   });
 
+  app.myUserCollection = new app.UserCollection();
 
   app.myUserCollection.fetch({
     success: function() {
       app.myUsersView.render();
-      app.mySearchView.render();
     }
   });
-
-
-
-
 
 
   app.myHomeView = new app.HomeView({
@@ -38,13 +39,10 @@ app.init = function() {
 
   app.myNewUserFormView.render();
 
-<<<<<<< HEAD
   app.myUsersView = new app.UsersView({
     collection: app.myUserCollection
   });
 
   app.myGoogleView = new app.GoogleView();
-=======
 
->>>>>>> daisy
 }
