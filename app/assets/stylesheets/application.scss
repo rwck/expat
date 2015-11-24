@@ -2,13 +2,10 @@
 @import 'users';
 @import 'styles';
 @import 'forms';
-
 @import 'table';
 
 
-@import 'dev';
-
-
+// @import 'dev';
 
 
 html,
@@ -26,7 +23,7 @@ body {
   background-repeat: no-repeat;
  }
 
-header {
+/* header {
   margin-top: 5px;
   background-image:url("expat.jpg");
   background-repeat: no-repeat;
@@ -34,13 +31,13 @@ header {
   text-align: center;
   border:2px solid white;
 }
-
-.header-title {
+ */
+/* .header-title {
   margin-left: 450px;
   margin-right: 0px;
   color: rgb(5, 21, 69);
 }
-
+ */
 image {
 	height: 100px;
 	width: 100px;
