@@ -2,8 +2,14 @@
 @import 'users';
 @import 'styles';
 @import 'forms';
+
 @import 'table';
 /* @import 'dev'; */
+
+@import 'dev';
+
+
+
 
 html,
 body {
@@ -33,4 +39,9 @@ header {
   margin-left: 450px;
   margin-right: 0px;
   color: rgb(5, 21, 69);
+}
+
+image {
+	height: 100px;
+	width: 100px;
 }

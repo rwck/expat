@@ -4,10 +4,26 @@ app.init = function() {
 
   app.myUserCollection = new app.UserCollection();
 
+  app.mySearchView = new app.SearchView({
+    model: app.UserModel
+  });
+
+  app.myUsersView = new app.UsersView({
+    collection: app.myUserCollection
+  });
+
+
   app.myUserCollection.fetch({
     success: function() {
-      app.myUsersView.render()
-  }});
+      app.myUsersView.render();
+      app.mySearchView.render();
+    }
+  });
+
+
+
+
+
 
   app.myHomeView = new app.HomeView({
     collection: app.myUserCollection,
@@ -17,14 +33,18 @@ app.init = function() {
   app.myHomeView.render();
 
   app.myNewUserFormView = new app.NewUserFormView({
-    collection: app.myUserCollection,
+    // model: app.myUserCollection.model
   });
 
   app.myNewUserFormView.render();
 
+<<<<<<< HEAD
   app.myUsersView = new app.UsersView({
     collection: app.myUserCollection
   });
 
   app.myGoogleView = new app.GoogleView();
+=======
+
+>>>>>>> daisy
 }

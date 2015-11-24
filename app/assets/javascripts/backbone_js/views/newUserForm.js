@@ -50,5 +50,10 @@ app.NewUserFormView = Backbone.View.extend({
     // console.log(myNewUser);
     // myNewUser.save();
 
+    this.model.create({
+      firstname: newUserFirstName,
+      lastname: newUserLastName,
+      current_location: newUserLocation,
+    });
   },
 });
