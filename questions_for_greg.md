@@ -8,6 +8,11 @@
 
 ## REadup on jsonp
 
+`git diff --name-status master..branch`
+
+`mergebase`
+
+
 * look at EJS gem for rails
 
 ```
