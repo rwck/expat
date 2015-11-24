@@ -5,7 +5,7 @@ app.SearchImages = Backbone.Collection.extend({
   model: app.SearchModel,
 
   initialize: function() {
-    // this.on("change", )
+   
   }
 
 });
