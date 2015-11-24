@@ -8,6 +8,10 @@ app.init = function() {
     model: app.UserModel
   });
 
+  app.myUsersView = new app.UsersView({
+    collection: app.myUserCollection
+  });
+
   app.myUserCollection.fetch({
     success: function() {
       app.myUsersView.render();
@@ -31,12 +35,10 @@ app.init = function() {
   app.myHomeView.render();
 
   app.myNewUserFormView = new app.NewUserFormView({
-    collection: app.myUserCollection,
+    // model: app.myUserCollection.model
   });
 
   app.myNewUserFormView.render();
 
-  app.myUsersView = new app.UsersView({
-    collection: app.myUserCollection
-  })
+
 }

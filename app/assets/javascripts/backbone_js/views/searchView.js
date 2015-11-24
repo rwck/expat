@@ -3,7 +3,7 @@ var app = app || {}
 app.SearchView = Backbone.View.extend({
   el: ".search-form",
 
-  template: _.template($("#search-template").html(), {}),
+  template: _.template( $("#search-template").html() ),
 
   events: {
     "click .flickr-search": "clicked",
@@ -19,7 +19,12 @@ app.SearchView = Backbone.View.extend({
   },
 
   clicked: function(event) {
+
     // var newSearch = $("#search-field").val();
     // alert(newSearch);
+
+    event.preventDefault();
+    var newSearch = $(".search-input").val();
+    alert(newSearch);
   }
 });
