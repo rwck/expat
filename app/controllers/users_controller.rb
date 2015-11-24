@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def current
+    @user = current_user
+  end
 
   def meetup
     @meetup_details = params
