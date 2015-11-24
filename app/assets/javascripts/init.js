@@ -2,16 +2,10 @@ var app = app || {};
 
 app.init = function() {
 
-  app.user1 = new app.UserModel({
-    firstname: "Trevor",
-    lastname: "Sorbet"
+  app.myFlickrView = new app.FlickrView({
   });
 
-  app.user2 = new app.UserModel({
-    firstname: "Gemima",
-    lastname: "Puddleduck"
-  });
-
+  app.myFlickrView.render();
 
   app.myUserCollection = new app.UserCollection();
 
@@ -21,11 +15,10 @@ app.init = function() {
 
   app.myUserCollection.fetch({
     success: function() {
-      app.myUsersView.render()
-  }});
+      app.myUsersView.render();
+    }
+  });
 
-
-  // # init in here
 
   app.myHomeView = new app.HomeView({
     collection: app.myUserCollection,
@@ -40,5 +33,10 @@ app.init = function() {
 
   app.myNewUserFormView.render();
 
-  
+  app.myUsersView = new app.UsersView({
+    collection: app.myUserCollection
+  });
+
+  app.myGoogleView = new app.GoogleView();
+
 }

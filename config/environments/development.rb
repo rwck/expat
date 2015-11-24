@@ -42,7 +42,7 @@ Rails.application.configure do
 # THIS IS THE STUFF NEEDED TO GET THE GUARD SERVER TO LISTEN
 
 
-# config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 
 
 # END OF THE STUFF NEEDED TO GET THE GUARD SERVER TO LISTEN

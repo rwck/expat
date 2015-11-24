@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rmeetup'
+gem 'httparty'
+
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -49,6 +52,7 @@ group :development do
   gem 'annotate'          # writes useful comments on your models
   gem 'quiet_assets'      # cleans up your logging output
   gem 'better_errors'     # explains itself... hopefully
+  gem 'seed_dump'
 end
 
 group :development do

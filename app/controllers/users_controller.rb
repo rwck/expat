@@ -7,9 +7,21 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+
+  def meetup
+    @meetup_details = params
+  end
+
+
+#   @params = params
+#   respond_to do |format|
+#     format.json { render :show, status: :ok, location: # @params }
+
+
   def search
     @daisy = "This is Daisy flickr API testing coming from Rails"
   end
+
 
   def home
     @testing = "This is Donald testing how this works. Here is variable coming from Rails"

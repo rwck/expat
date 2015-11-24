@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   resources :users
 
-  root 'users#search'
+  root 'users#home'
+
+  get '/search' => 'users#search'
+
+  post '/' => 'users#meetup'
+  get '/users/meetup' => 'users#meetup'
+
+
+  get '/meetup' => 'meetup#search_meetup'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

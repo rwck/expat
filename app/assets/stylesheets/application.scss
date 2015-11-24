@@ -2,8 +2,13 @@
 @import 'users';
 @import 'styles';
 @import 'forms';
-/* @import 'dev';
- */
+
+@import 'table';
+
+
+@import 'dev';
+
+
 
 
 html,
@@ -40,4 +45,3 @@ image {
 	height: 100px;
 	width: 100px;
 }
-
