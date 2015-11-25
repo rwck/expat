@@ -4,7 +4,7 @@ class MeetupController < ApplicationController
   def search_meetup
 
     @params = params
-    response = HTTParty.get('https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=-34.397&lon=150.644')
+    response = HTTParty.get('https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=-34.397&lon=150.644&page=20')
     @response = JSON.parse(response.body)
     pp response.body, response.code, response.message, response.headers.inspect
 
