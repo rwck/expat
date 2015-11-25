@@ -27,7 +27,6 @@ app.init = function() {
     }
   });
 
-
   app.myHomeView = new app.HomeView({
     collection: app.myUserCollection,
     model: app.myUserModel
@@ -45,6 +44,7 @@ app.init = function() {
   });
 
   app.myGoogleView = new app.GoogleView();
+  app.myGoogleView.getGoogleMaps()
 
   app.myRouter = new app.Router();
 

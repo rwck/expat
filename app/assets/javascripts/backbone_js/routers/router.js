@@ -36,6 +36,7 @@ app.Router = Backbone.Router.extend({
     });
   }
 
+
   //     app.router.navigate("#posts/" + route, true);
 
 

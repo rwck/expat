@@ -5,25 +5,45 @@ app.GoogleView = Backbone.View.extend({
   initMap: function() {
 
     map = new google.maps.Map(document.getElementById('googleMap'), {
-      zoom: 10,
+      zoom: 12,
       center: {
         lat: -33.8674869,
+        // lat: 60.8674869,
+
         lng: 151.20699020000006
       }
     });
 
     geocoder = new google.maps.Geocoder();
-    console.log(geocoder);
-    console.log(map);
+    // console.log(geocoder);
+    // console.log(map);
 
-    console.log(this.geocodeAddress);
+    // console.log(this.geocodeAddress);
 
     var thisIsMyThis = this;
 
     $('.new-user-submit-button').click(function() {
+      console.log("USER SUBMIT clicked");
       thisIsMyThis.geocodeAddress(geocoder, map);
     });
   },
+
+  getGoogleMaps: function() {
+    $.ajax({
+      url: "https://maps.googleapis.com/maps/api/js?",
+      dataType: "json",
+      data: {
+        key: "AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58",
+        signed_in: true,
+        callback: "app.myGoogleView.initMap"
+      }
+    })
+  },
+
+
+  //   'http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&&callback=app.myGoogleView.initMap',
+  // })
+
 
   geocodeAddress: function(geocoder, resultsMap) {
     console.log(resultsMap);
