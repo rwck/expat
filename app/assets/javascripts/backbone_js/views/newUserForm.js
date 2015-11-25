@@ -1,20 +1,19 @@
-var app = app || {}
+var app = app || {};
 
 app.NewUserFormView = Backbone.View.extend({
 
   el: "#new-user-form",
 
+  // lat: 60,
+  // lon: 60,
+
   initialize: function() {
     console.log("initialising new user view");
     console.log(this);
     this.listenTo(this.model, "change:current_location", function(event) {
-      app.myGoogleView.getGoogleMaps(60, 60);
+      app.myGoogleView.getGoogleMaps();
 
     });
-    // this.listenTo("change:current_location", function() {
-      // ;
-
-    // });
   },
 
   template: _.template($("#enter-new-user-form-template").html(), {}),

@@ -10,7 +10,9 @@ app.init = function() {
   app.myUserCollection = new app.UserCollection();
 
   app.myUsersView = new app.UsersView({
-    collection: app.myUserCollection
+    collection: app.myUserCollection,
+    lat: 40,
+    lon: 40
   });
 
   // Added by Donald - this might not work
@@ -24,7 +26,7 @@ app.init = function() {
         console.log("test", data);
         app.myCurrentUser = app.myUserCollection.get(data.id);
         app.myCurrentUserView = new app.NewUserFormView({
-          model: app.myCurrentUser
+          model: app.myCurrentUser,
         });
         app.myCurrentUserView.render();
       });
@@ -44,7 +46,7 @@ app.init = function() {
   app.myHomeView.render();
 
   app.myUsersView = new app.UsersView({
-    collection: app.myUserCollection
+    collection: app.myUserCollection,
   });
 
   app.myGoogleView = new app.GoogleView();

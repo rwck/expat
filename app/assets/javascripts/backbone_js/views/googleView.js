@@ -4,7 +4,16 @@ app.GoogleView = Backbone.View.extend({
 
   initMap: function(mylat, mylon) {
     console.log("initialising map");
-    alert([mylat, mylon]);
+
+
+    if (mylat == undefined || mylat == null) {
+      mylat = -33.8726559;
+    }
+
+    if (mylon == undefined || mylon == null) {
+      mylon = 151.2044273;
+    }
+
 
     map = new google.maps.Map(document.getElementById('googleMap'), {
       zoom: 12,
@@ -14,10 +23,15 @@ app.GoogleView = Backbone.View.extend({
       }
     });
 
+    console.log(map);
+
     geocoder = new google.maps.Geocoder();
 
 
     var thisIsMyThis = this;
+    thisIsMyThis.geocodeAddress(geocoder, map);
+
+
 
     // $('.new-user-submit-button').click(function() {
     //   console.log("USER SUBMIT clicked");
@@ -53,12 +67,8 @@ app.GoogleView = Backbone.View.extend({
     });
   },
 
-
-  //   'http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&&callback=app.myGoogleView.initMap',
-  // })
-
-
   geocodeAddress: function(geocoder, resultsMap) {
+    console.log("geocoder is firing");
     console.log(resultsMap);
     var address = document.getElementById('address-input-field').value;
     console.log(this.address);
@@ -72,19 +82,20 @@ app.GoogleView = Backbone.View.extend({
         if (status === google.maps.GeocoderStatus.OK) {
           resultsMap.setCenter(results[0].geometry.location);
           locationForMeetupSearch = results[0].geometry.location;
-          alert(locationForMeetupSearch);
+          // alert(locationForMeetupSearch);
+          console.log("this is the look up search coordinates", locationForMeetupSearch);
 
           latitude = locationForMeetupSearch.lat();
           longitude = locationForMeetupSearch.lng();
 
           htmlLookUpString = "https://api.meetup.com/find/groups";
-          // key=25423068d7d50102e2030b14583f43&lat=";
+
 
           console.log(htmlLookUpString);
 
           ajaxResults = $.ajax({
             url: htmlLookUpString,
-            dataType: "json",
+            dataType: "jsonp",
             data: {
               key: "25423068d7d50102e2030b14583f43",
               lat: latitude,
@@ -117,11 +128,3 @@ app.GoogleView = Backbone.View.extend({
     );
   }
 });
-
-
-
-//   latitude = locationForMeetupSearch.lat()
-// longitude = locationForMeetupSearch.lng();
-// var meetUpLookUp = "https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat" + latitude + "&lon" + longitude;
-// console.log(meetUpLookUp);
-// alert([longitude, latitude]);
