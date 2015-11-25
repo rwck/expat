@@ -5,10 +5,22 @@ class MeetupController < ApplicationController
 
     @params = params
     response = HTTParty.get('https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=-34.397&lon=150.644')
-    @response = response
+    @response = JSON.parse(response.body)
     pp response.body, response.code, response.message, response.headers.inspect
 
-    render "users/home"
+
+    render "users/meetup_search"
+
+
+    # render text: response.body
+
+    # render json: also exists = this converts your object into json before rendering it
+    return
+
+
+
+
+#    render "users/meetup_search"
 
     # render nothing: true
   end

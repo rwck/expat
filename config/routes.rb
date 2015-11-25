@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get '/users/meetup' => 'users#meetup'
 
 
-  get '/meetup' => 'meetup#search_meetup'
+  get '/meetups' => 'meetup#search_meetup', defaults: {format: 'json'}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

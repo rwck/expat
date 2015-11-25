@@ -39,4 +39,8 @@ app.init = function() {
 
   app.myGoogleView = new app.GoogleView();
 
+  app.myRouter = new app.Router();
+
+  Backbone.history.start();
+
 }

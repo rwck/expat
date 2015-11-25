@@ -2,9 +2,10 @@ var app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-    "users/:id" : "usersShow",
-    "*other": "userIndex"
-    "meetups/search" : "getMeetups"
+    "users/:id": "usersShow",
+    "meetups/:number/:word": "getMeetups"
+    // "*other": "userIndex"
+
   },
 
   usersShow: function(id) {
@@ -12,11 +13,12 @@ app.Router = Backbone.Router.extend({
     console.log("id is", id);
   },
 
-  getMeetups: function() {
-
+  getMeetups: function(number, word) {
+    alert(word);
+    
   }
 
-//     app.router.navigate("#posts/" + route, true);
+  //     app.router.navigate("#posts/" + route, true);
 
 
 
