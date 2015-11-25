@@ -1,5 +1,5 @@
 json.array!(@response) do |search_result|
-  json.extract! search_result, "name", "city", "link", "description"
+  json.extract! search_result, "name", "city", "link", "description", "lat", "lon"
 end
 
 

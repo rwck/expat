@@ -8,7 +8,6 @@ class MeetupController < ApplicationController
     @response = JSON.parse(response.body)
     pp response.body, response.code, response.message, response.headers.inspect
 
-
     render "users/meetup_search"
 
 
