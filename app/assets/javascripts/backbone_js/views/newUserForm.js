@@ -1,6 +1,6 @@
 var app = app || {}
 
-app.NewUserFormView = Backbone.View.extend({
+app.NewUserFormView = Backbone.View.extend({q
   
   el: "#new-user-form",
 
@@ -13,7 +13,7 @@ app.NewUserFormView = Backbone.View.extend({
 
   render: function() {
     // console.log("rendering new user form", this.collection.url);
-    var templateResult = this.template(this.model.attributes);
+    var templateResult = this.template(user.this.model.attributes);
     this.$el.html(templateResult);
   },
 
@@ -23,7 +23,6 @@ app.NewUserFormView = Backbone.View.extend({
     var newUserLastName = $("#lastname-input-field").val();
     var newUserLocation = $("#address-input-field").val();
     var newUserEmail = $("#email-input-field").val();
-   
       
     console.log(newUserFirstName);
     console.log(newUserLastName);
