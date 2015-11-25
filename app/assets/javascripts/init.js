@@ -13,6 +13,10 @@ app.init = function() {
     collection: app.myUserCollection
   });
 
+  // Added by Donald - this might not work
+  app.myUserModel = new app.UserModel();
+  // --------
+
   app.myUserCollection.fetch({
     success: function() {
       app.myUsersView.render();

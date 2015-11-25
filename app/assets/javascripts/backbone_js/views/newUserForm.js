@@ -4,6 +4,19 @@ app.NewUserFormView = Backbone.View.extend({
 
   el: "#new-user-form",
 
+  initialize: function() {
+    console.log("initialising new user view");
+    console.log(this);
+    this.listenTo(this.model, "change:current_location", function(event) {
+      app.myGoogleView.getGoogleMaps(60, 60);
+
+    });
+    // this.listenTo("change:current_location", function() {
+      // ;
+
+    // });
+  },
+
   template: _.template($("#enter-new-user-form-template").html(), {}),
 
   events: {
@@ -37,7 +50,8 @@ app.NewUserFormView = Backbone.View.extend({
     console.log(newUserLastName);
     console.log(newUserLocation);
     console.log(newUserEmail);
-    this.model.save({
+    // changed the below from save to set
+    this.model.set({
       firstname: newUserFirstName,
       lastname: newUserLastName,
       current_location: newUserLocation,

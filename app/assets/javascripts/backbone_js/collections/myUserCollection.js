@@ -5,6 +5,7 @@ app.UserCollection = Backbone.Collection.extend({
   model: app.UserModel,
 
   initialize: function() {
+
     // this.on("change", )
   }
 
