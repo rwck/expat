@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
 
+
 #   @params = params
 #   respond_to do |format|
 #     format.json { render :show, status: :ok, location: # @params }
