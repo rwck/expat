@@ -17,7 +17,9 @@ app.NewUserFormView = Backbone.View.extend({
     // this is daisy's version ...
     // console.log("rendering new user form", this.collection.url);
     //
-    var templateResult = this.template(this.model.attributes);
+    var templateResult = this.template({
+      user: this.model.attributes
+    });
 
     this.$el.html(templateResult);
   },
