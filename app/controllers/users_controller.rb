@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def current
+    @user = current_user
+  end
 
   def meetup
     @meetup_details = params
@@ -60,6 +63,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = current_user # prevent people updating other users
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

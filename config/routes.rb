@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # devise_for :admins
+
+  get '/users/current' => 'users#current', as: :current_user
+
+  get '/users/meetup' => 'users#meetup'
   resources :users
 
   root 'users#home'
 
   get '/search' => 'users#search'
 
+
   # post '/' => 'users#meetup'
   # get '/users/meetup' => 'users#meetup'
+
 
 
   get '/meetups' => 'meetup#search_meetup', defaults: {format: 'json'}

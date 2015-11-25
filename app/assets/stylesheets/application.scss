@@ -3,7 +3,9 @@
 @import 'forms';
 @import 'table';
 
+
 // @import 'dev';
+
 
 html,
 body {
@@ -36,6 +38,20 @@ body {
 }
  */
 image {
-	height: 100px;
-	width: 100px;
+	height: 80px;
+	width: 80px;
+}
+
+.flick-header {
+  background-image:url(http://www.transitionsabroad.com/images/maps/worldwide_expatriates.gif);
+  background-repeat: no-repeat;
+  height:200px;
+  width:400px;
+}
+
+.image-container {
+   min-height: 120px;
+}
+
+.container {
 }
