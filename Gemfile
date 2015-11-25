@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rmeetup'
+# gem 'rmeetup'
 gem 'httparty'
 
 gem 'rails', '4.2.4'
@@ -59,5 +59,8 @@ group :development do
   gem 'guard-livereload', '~> 2.4', require: false
   gem "rack-livereload"
 end
+
+gem 'rails_12factor', group: :production
+ruby '2.2.3'
 
 gem 'puma'

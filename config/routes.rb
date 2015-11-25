@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # devise_for :admins
-    
+
   get '/users/current' => 'users#current', as: :current_user
 
   get '/users/meetup' => 'users#meetup'
@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   get '/search' => 'users#search'
 
-  post '/' => 'users#meetup'
-  
+
+  # post '/' => 'users#meetup'
+  # get '/users/meetup' => 'users#meetup'
 
 
-  get '/meetup' => 'meetup#search_meetup'
+
+  get '/meetups' => 'meetup#search_meetup', defaults: {format: 'json'}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

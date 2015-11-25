@@ -2,21 +2,45 @@ require 'pp'
 
 class MeetupController < ApplicationController
   def search_meetup
-    client = RMeetup::Client.new do |config|
-      config.api_key = '25423068d7d50102e2030b14583f43'
-    end
 
-    pp "here are the params" + params.to_s
+    @params = params
+    response = HTTParty.get('https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=-34.397&lon=150.644&page=20')
+    @response = JSON.parse(response.body)
+    pp response.body, response.code, response.message, response.headers.inspect
 
-    results = client.fetch(:events, event_id: 'some_id')
-    results.each do |_result|
+    render "users/meetup_search"
+
+
+    # render text: response.body
+
+    # render json: also exists = this converts your object into json before rendering it
+    return
+
+
+
+
+#    render "users/meetup_search"
+
+    # render nothing: true
+  end
+end
+
+
+
+# require 'pp'
+
+# class MeetupController < ApplicationController
+
+#   def search_meetup
+#     client = RMeetup::Client.new do |config|
+#       config.api_key = '25423068d7d50102e2030b14583f43'
+#     end
+
+#     pp 'here are the params' + params.to_s
+
+#     results = client.fetch(:events, event_id: # 'some_id')
+#     results.each do |_result|
       # Do something with the result
-    end
-
-    event = client.post(:group, : 'some_group_id',
-                                       group_urlname: 'some_group_urlname',
-                                       name: 'My Event')
-
-    client.delete(:event, 'event_id') # May throw exceptions or returns true
-end
-end
+#     end
+#   end
+# end

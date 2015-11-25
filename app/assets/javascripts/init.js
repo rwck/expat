@@ -32,6 +32,10 @@ app.init = function() {
     collection: app.myUserCollection,
     model: app.myUserModel
 
+  // Deleted to get user authentication working
+  // app.myNewUserFormView = new app.NewUserFormView({
+  //   collection: app.myUserCollection
+
   });
 
   app.myHomeView.render();
@@ -41,5 +45,9 @@ app.init = function() {
   });
 
   app.myGoogleView = new app.GoogleView();
+
+  app.myRouter = new app.Router();
+
+  Backbone.history.start();
 
 }

@@ -1,6 +1,7 @@
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.myGoogleView.initMap"></script>
-
 <div class="container">
+  <div id="users-view"></div>
+  <%= @params %>
+  <%= @response %>
 
   <header></header>
   <div class="header-title">
@@ -121,3 +122,7 @@
             // })
           </script>
         </div>
+
+        <% content_for :js do %>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.myGoogleView.initMap"></script>
+        <% end %>

@@ -1,7 +1,7 @@
 var app = app || {}
 
 app.UsersView = Backbone.View.extend({
-  el: $("#test"),
+  el: $("#users-view"),
 
   initialize: function() {
     this.listenTo(this.collection, "all", function(event) {
@@ -18,6 +18,9 @@ app.UsersView = Backbone.View.extend({
     var tableTemplate = _.template($("#table-template").html());
 
     var pageContents = tableTemplate({users: this.collection});
+    var text = "this is some text to try to work out how this is working"
+
+    // this.$el.html(text);
 
     $("#put-table-here").html(pageContents);
 

@@ -8,6 +8,19 @@
 
 ## REadup on jsonp
 
+`git diff --name-status master..branch`
+
+`mergebase`
+
+## Rails devise
+This is difficult with backbone - you end up needing to attach all kinds of stuff in all of your methods to make sure that
+
+## Command to duplicate one branch into the current one
+
+`git merge master -X theirs` 
+
+(master is the one you're merging into the current one.)
+
 * look at EJS gem for rails
 
 ```
