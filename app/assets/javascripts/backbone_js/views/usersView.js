@@ -7,7 +7,7 @@ app.UsersView = Backbone.View.extend({
     this.listenTo(this.collection, "all", function(event) {
       console.log("User List event happening", event);
     })
-    this.listenTo(this.collection, "update", this.render);
+    this.listenTo(this.collection, "change", this.render);
   },
   // url
   // el: "#backbone-template",
