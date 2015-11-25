@@ -50,7 +50,7 @@ app.NewUserFormView = Backbone.View.extend({
     console.log(newUserLocation);
     console.log(newUserEmail);
     // changed the below from save to set
-    this.model.set({
+    this.model.save({
       firstname: newUserFirstName,
       lastname: newUserLastName,
       current_location: newUserLocation,
