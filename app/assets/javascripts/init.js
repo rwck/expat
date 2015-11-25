@@ -44,7 +44,7 @@ app.init = function() {
   });
 
   app.myGoogleView = new app.GoogleView();
-  app.myGoogleView.getGoogleMaps()
+  // app.myGoogleView.getGoogleMaps()
 
   app.myRouter = new app.Router();
 

@@ -31,7 +31,7 @@ app.GoogleView = Backbone.View.extend({
   getGoogleMaps: function() {
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/js?",
-      dataType: "json",
+      dataType: "jsonp",
       data: {
         key: "AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58",
         signed_in: true,
