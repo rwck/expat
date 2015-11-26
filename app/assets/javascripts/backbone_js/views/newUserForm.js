@@ -12,9 +12,16 @@ app.NewUserFormView = Backbone.View.extend({
     console.log(this);
     this.listenTo(this.model, "change:current_location", function(event) {
       app.myGoogleView.getGoogleMaps();
+      console.log("this is coming from the bigResults", app.myGoogleView.bigResults);
 
+
+
+
+      app.myRouter.getMeetups(51.5072, 0.1275);
+      // this.getCoordinates();
     });
   },
+
 
   template: _.template($("#enter-new-user-form-template").html(), {}),
 

@@ -2,6 +2,11 @@ var app = app || {};
 
 app.GoogleView = Backbone.View.extend({
 
+  el: "#meetup-list",
+
+  // template: _.template($("#meetup-list").html(), {}),
+
+
   initMap: function(mylat, mylon) {
     console.log("initialising map");
 
@@ -13,7 +18,6 @@ app.GoogleView = Backbone.View.extend({
     if (mylon == undefined || mylon == null) {
       mylon = 151.2044273;
     }
-
 
     map = new google.maps.Map(document.getElementById('googleMap'), {
       zoom: 12,
@@ -39,6 +43,8 @@ app.GoogleView = Backbone.View.extend({
     // });
   },
 
+  // bigResults: [],
+
   // **************this works - i'm changing it to something that might not work
   // getGoogleMaps: function() {
   //   $.ajax({
@@ -54,6 +60,7 @@ app.GoogleView = Backbone.View.extend({
   //************** end of what works
 
   getGoogleMaps: function(mylat, mylon) {
+    app.myGoogleView.bigresults = [mylat, mylon];
     $.ajax({
       url: "https://maps.googleapis.com/maps/api/js?",
       dataType: "jsonp",
@@ -63,21 +70,26 @@ app.GoogleView = Backbone.View.extend({
       },
       success: function() {
         app.myGoogleView.initMap(mylat, mylon);
+        alert(app.myGoogleView.bigResults);
       }
     });
   },
 
-  geocodeAddress: function(geocoder, resultsMap) {
+  // thisIsMyThis: this,
+  geocodeAddress: function(geocoder, resultsMap, address) {
+    var thisIsMyThis = this;
     console.log("geocoder is firing");
     console.log(resultsMap);
-    var address = document.getElementById('address-input-field').value;
+    // this is where we need to pass in the right value
+    var address = "buenos aires";
+    // var address = document.getElementById('address-input-field').value;
     console.log(this.address);
     geocoder.geocode({
         'address': address
       },
       function(results, status) {
         console.log(results);
-        bigResults = results;
+
         console.log(resultsMap);
         if (status === google.maps.GeocoderStatus.OK) {
           resultsMap.setCenter(results[0].geometry.location);
@@ -90,20 +102,31 @@ app.GoogleView = Backbone.View.extend({
 
           htmlLookUpString = "https://api.meetup.com/find/groups";
 
-
           console.log(htmlLookUpString);
 
-          ajaxResults = $.ajax({
+          $.ajax({
             url: htmlLookUpString,
             dataType: "jsonp",
             data: {
               key: "25423068d7d50102e2030b14583f43",
               lat: latitude,
-              lon: longitude
+              lon: longitude,
+              page: 10
             },
 
             complete: function(result) {
               console.log(result);
+              bigResult = result.responseJSON.data;
+              console.log(bigResult);
+              console.log(thisIsMyThis.el);
+
+              for (var i = 0; i < bigResult.length; i++) {
+                thisIsMyThis.$el.append(bigResult[i].link + "<br>" + bigResult[i].description );
+              }
+
+              // thisIsMyThis.$el.html(bigResult[0].city);
+              console.log(thisIsMyThis.$el.html());
+
             },
 
             error: function(xHR, status, message) {
@@ -111,7 +134,7 @@ app.GoogleView = Backbone.View.extend({
             }
           });
 
-          console.log(ajaxResults);
+          // console.log(ajaxResults);
 
           function logResults() {
             console.log(ajaxResults);
