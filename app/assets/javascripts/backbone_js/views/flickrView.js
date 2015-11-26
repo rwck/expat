@@ -77,7 +77,7 @@ app.FlickrView = Backbone.View.extend({
         place_id: placeId,
         api_key: "0f22f51640ea8a231f4f054db5d14ef8",
         format: "json",
-        per_page: 5,
+        per_page: 8,
         page: 1
       },
       success: function(data) {
