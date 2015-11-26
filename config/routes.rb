@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   # devise_for :admins
 
   get '/users/current' => 'users#current', as: :current_user
@@ -11,10 +11,8 @@ Rails.application.routes.draw do
 
   get '/search' => 'users#search'
 
-
   # post '/' => 'users#meetup'
   # get '/users/meetup' => 'users#meetup'
-
 
 
   get '/meetups' => 'meetup#search_meetup', defaults: {format: 'json'}
