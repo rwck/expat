@@ -6,7 +6,6 @@ app.GoogleView = Backbone.View.extend({
 
   // template: _.template($("#meetup-list").html(), {}),
 
-
   initMap: function(mylat, mylon) {
     // old
   },
@@ -24,16 +23,18 @@ app.GoogleView = Backbone.View.extend({
   },
 
   searchMeetup: function(latLng) {
+    console.log("search Meetup is firing");
     latitude = latLng.lat();
     longitude = latLng.lng();
     htmlLookUpString = "https://api.meetup.com/find/groups";
 
     var thisIsMyThis = this;
+
     $.ajax({
       url: htmlLookUpString,
       dataType: "jsonp",
       data: {
-        key: "25423068d7d50102e2030b14583f43",
+        key: $("#boo").data("thing"),
         lat: latitude,
         lon: longitude,
         page: 10

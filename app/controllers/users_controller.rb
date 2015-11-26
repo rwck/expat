@@ -27,6 +27,21 @@ class UsersController < ApplicationController
 
   def home
     @testing = "This is Donald testing how this works. Here is variable coming from Rails"
+
+    @meetup_key = ENV["MEETUP_API"]
+    @flickr_key = ENV["FLICKR_API"]
+
+    query = {
+      key: ENV["GOOGLEMAPS_API"],
+      callback: "app.onGoogleInitialise",
+      signed_in: true
+    }.to_query
+
+    @key = ENV["GOOGLEMAPS_API"]
+
+    @test = "https://maps.googleapis.com/maps/api/js?" + query
+
+    @more_text = ENV["BROWSER_KEY"]
   end
 
   # GET /users/1

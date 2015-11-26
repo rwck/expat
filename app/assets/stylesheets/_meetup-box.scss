@@ -1,18 +1,22 @@
-.meetup-list {
-  position: absolute;
-  right: 0;
-  background-color: white;
-  padding: 0.5rem;
-  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
-  margin: 0.5rem 0;
-  width: 45%;
+@media only screen and (max-width: 800px) {
+  .meetup-list {
+    // position: relative;
+    background-color: white;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+    margin: 0.5rem 0;
+    width: 100%;
+  }
 }
 
-
-
-
-
-
-  // width: 45%;
-  // position: absolute;
-  // right: 2rem;
+@media only screen and (min-width: 801px) {
+  .meetup-list {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+    margin: 0.5rem 0;
+    width: 45%;
+  }
+}

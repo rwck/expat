@@ -19,7 +19,7 @@ app.Router = Backbone.Router.extend({
     // myLat = app.myGoogleView.bigResults[0];
     // myLon = app.myGoogleView.bigResults[1];
 
-// response = HTTParty.get('https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=-34.397&lon=150.644&page=20')
+
 
     $.ajax({
       url: '/meetups.json',
@@ -36,7 +36,7 @@ app.Router = Backbone.Router.extend({
 
       success: function(data) {
         console.log("success", data);
-        
+
       },
 
       error: function(xhr, status, message) {

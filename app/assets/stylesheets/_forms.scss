@@ -1,10 +1,24 @@
-#new-user-form {
-  width: 45%;
-  position: absolute;
-  right: 0;
-  top: 5vh;
+@media only screen and (max-width: 800px) {
+  #my-form {
+    width: 100%;
+    // position: relative;
+    top: 5vh;
+    // position: absolute;
+    display: block;
+  }
 }
 
+@media only screen and (min-width: 801px) {
+  #new-user-form {
+    width: 45%;
+    position: absolute;
+    right: 0;
+    top: 5vh;
+  }
+  .my-form {
+    position: relative;
+  }
+}
 
 input[type="text"] {
   @include my-body-text;
@@ -79,10 +93,11 @@ button:active {
 .actions input[type="submit"] {
   font-size: 1rem;
   padding: 0.75rem;
-  width: 50%;
+  width: 10rem;
   border: none;
   display: inline-block;
   background-color: yellow;
+  margin: 1.5rem 0;
   box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
 }
 
@@ -91,10 +106,21 @@ button:active {
   color: yellow;
 }
 
+input[type="checkbox"] {
+  margin: 1.5rem 0;
+}
+
+input[type="password"] {
+  @include my-body-text;
+  text-align: right;
+  border: none;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 0.5rem 0;
+}
+
 .actions input[type="submit"] {
   outline: none;
 }
-
 
 button:hover {
   background-color: black;
