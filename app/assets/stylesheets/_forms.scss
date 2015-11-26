@@ -79,10 +79,11 @@ button:active {
 .actions input[type="submit"] {
   font-size: 1rem;
   padding: 0.75rem;
-  width: 50%;
+  width: 10rem;
   border: none;
   display: inline-block;
   background-color: yellow;
+  margin: 1.5rem 0;
   box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
 }
 
@@ -90,6 +91,22 @@ button:active {
   background-color: black;
   color: yellow;
 }
+
+input[type="checkbox"] {
+  margin: 1.5rem 0;
+}
+
+input[type="password"] {
+  @include my-body-text;
+  text-align: right;
+  border: none;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 0.5rem 0;
+}
+
+
+
+
 
 .actions input[type="submit"] {
   outline: none;
