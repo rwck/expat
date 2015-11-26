@@ -1,8 +1,24 @@
-var app = app || {}
+var app = app || {};
 
 app.NewUserFormView = Backbone.View.extend({
 
   el: "#new-user-form",
+
+  // lat: 60,
+  // lon: 60,
+
+  initialize: function() {
+    console.log("initialising new user view");
+    console.log(this);
+    this.listenTo(this.model, "change:current_location", function(event) {
+      // app.myGoogleView.getGoogleMaps();
+      console.log("this is coming from the bigResults", app.myGoogleView.bigResults);
+
+      app.myRouter.getMeetups(51.5072, 0.1275);
+      // this.getCoordinates();
+    });
+  },
+
 
   template: _.template($("#enter-new-user-form-template").html(), {}),
 
@@ -37,6 +53,7 @@ app.NewUserFormView = Backbone.View.extend({
     console.log(newUserLastName);
     console.log(newUserLocation);
     console.log(newUserEmail);
+    // changed the below from save to set
     this.model.save({
       firstname: newUserFirstName,
       lastname: newUserLastName,

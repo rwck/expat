@@ -11,11 +11,10 @@ Rails.application.routes.draw do
 
   get '/search' => 'users#search'
 
+  get '/meetups' => 'meetup#search_meetup', defaults: { format: 'json' }
+
   # post '/' => 'users#meetup'
   # get '/users/meetup' => 'users#meetup'
-
-
-  get '/meetups' => 'meetup#search_meetup', defaults: {format: 'json'}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

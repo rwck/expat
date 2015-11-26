@@ -2,10 +2,11 @@
 @import 'styles';
 @import 'forms';
 @import 'table';
-
+@import 'picture-container';
+@import 'map-box';
+@import 'meetup-box';
 
 // @import 'dev';
-
 
 html,
 body {
@@ -22,21 +23,23 @@ body {
   background-repeat: no-repeat;
  }
 
-/* header {
+header {
   margin-top: 5px;
   background-image:url("expat.jpg");
   background-repeat: no-repeat;
   color: white;
   text-align: center;
-  border:2px solid white;
+  min-height: 5rem;
+  // border:2px solid white;
 }
- */
-/* .header-title {
+
+.header-title {
   margin-left: 450px;
   margin-right: 0px;
   color: rgb(5, 21, 69);
 }
- */
+
+
 image {
 	height: 80px;
 	width: 80px;

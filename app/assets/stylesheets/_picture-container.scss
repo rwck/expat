@@ -1,0 +1,25 @@
+.pictures {
+  position: absolute;
+  left: 0;
+  background-color: white;
+  padding: 0.5rem;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 0.5rem 0;
+  width: 45%;
+}
+
+.pictures img {
+  width: 20%;
+  padding: 0.5rem;
+  height: 10rem;
+  width: 10rem;
+  background-size: cover;
+  // border: 1px solid black;
+  margin: 0.5rem;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+.image-container {
+  margin: 0 auto;
+  text-align: center;
+}

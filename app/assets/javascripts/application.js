@@ -30,6 +30,6 @@
 
 //= require_self
 
-$(document).ready(function(){
+$(window).load(function(){
   app.init();
-})
+});

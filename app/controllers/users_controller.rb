@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     @meetup_details = params
   end
 
-
 #   @params = params
 #   respond_to do |format|
 #     format.json { render :show, status: :ok, location: # @params }

@@ -2,101 +2,65 @@ var app = app || {};
 
 app.GoogleView = Backbone.View.extend({
 
-  initMap: function() {
+  el: "#meetup-list",
 
-    map = new google.maps.Map(document.getElementById('googleMap'), {
-      zoom: 10,
-      center: {
-        lat: -33.8674869,
-        lng: 151.20699020000006
-      }
-    });
+  // template: _.template($("#meetup-list").html(), {}),
 
-    geocoder = new google.maps.Geocoder();
-    console.log(geocoder);
-    console.log(map);
 
-    console.log(this.geocodeAddress);
+  initMap: function(mylat, mylon) {
+    // old
+  },
 
-    var thisIsMyThis = this;
-
-    $('.new-user-submit-button').click(function() {
-      thisIsMyThis.geocodeAddress(geocoder, map);
+  createMap: function(latLng) {
+    return new google.maps.Map(document.getElementById('googleMap'), {
+      zoom: 12,
+      center: latLng
     });
   },
 
-  geocodeAddress: function(geocoder, resultsMap) {
-    console.log(resultsMap);
-    var address = document.getElementById('address-input-field').value;
-    console.log(this.address);
-    geocoder.geocode({
-        'address': address
+  setCentre: function(latLng) {
+    this.map = this.map || this.createMap(latLng);
+    this.map.setCenter(latLng);
+  },
+
+  searchMeetup: function(latLng) {
+    latitude = latLng.lat();
+    longitude = latLng.lng();
+    htmlLookUpString = "https://api.meetup.com/find/groups";
+
+    var thisIsMyThis = this;
+    $.ajax({
+      url: htmlLookUpString,
+      dataType: "jsonp",
+      data: {
+        key: "25423068d7d50102e2030b14583f43",
+        lat: latitude,
+        lon: longitude,
+        page: 10
       },
-      function(results, status) {
-        console.log(results);
-        bigResults = results;
-        console.log(resultsMap);
-        if (status === google.maps.GeocoderStatus.OK) {
-          resultsMap.setCenter(results[0].geometry.location);
-          locationForMeetupSearch = results[0].geometry.location;
-          alert(locationForMeetupSearch);
 
-          latitude = locationForMeetupSearch.lat()
-          longitude = locationForMeetupSearch.lng();
+      complete: function(result) {
+        var bigResult = result.responseJSON.data;
+        console.log(bigResult);
 
-          htmlLookUpString = "https://api.meetup.com/find/groups";
-          // key=25423068d7d50102e2030b14583f43&lat=";
-
-          console.log(htmlLookUpString);
-
-          // htmlLookUpString += latitude.toString() + "&lon=" + longitude.toString();
-          // console.log(htmlLookUpString);
-
-          // $.ajaxSetup({
-          //   headers:
-          // })
-
-          ajaxResults = $.ajax({
-            url: htmlLookUpString,
-            dataType: "json",
-            // headers: Backbone.BasicAuth.getHeader({
-            //   Access-Control-Allow-Origin: '*'
-            // }),
-            data: {
-              key: "25423068d7d50102e2030b14583f43",
-              lat: latitude,
-              lon: longitude
-            },
-            complete: function(result) {
-              console.log(result);
-            },
-            error: function(xHR, status, message) {
-              alert(message)
-            }
-          });
-
-          console.log(ajaxResults);
-
-          function logResults() {
-            console.log(ajaxResults)
-          };
-
-          var marker = new google.maps.Marker({
-            map: resultsMap,
-            position: results[0].geometry.location
-          });
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+        thisIsMyThis.$el.empty();
+        for (var i = 0; i < bigResult.length; i++) {
+          thisIsMyThis.$el.append(bigResult[i].link + "<br>" + bigResult[i].description);
         }
+      },
+
+      error: function(xHR, status, message) {
+        alert(message);
       }
-    );
-  }
+    });
+  },
 });
 
 
-
-//   latitude = locationForMeetupSearch.lat()
-// longitude = locationForMeetupSearch.lng();
-// var meetUpLookUp = "https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat" + latitude + "&lon" + longitude;
-// console.log(meetUpLookUp);
-// alert([longitude, latitude]);
+// var marker = new google.maps.Marker({
+//   map: resultsMap,
+//   position: results[0].geometry.location
+// });
+// } else {
+// alert('Geocode was not successful for the following reason: ' + status);
+// }

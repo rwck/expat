@@ -13,7 +13,11 @@ app.Router = Backbone.Router.extend({
     console.log("id is", id);
   },
 
-  getMeetups: function(number, word) {
+  getMeetups: function(myLat, myLon) {
+
+    // this is not the best way to do this because it relies on a global variable
+    // myLat = app.myGoogleView.bigResults[0];
+    // myLon = app.myGoogleView.bigResults[1];
 
 // response = HTTParty.get('https://api.meetup.com/find/groups?key=25423068d7d50102e2030b14583f43&lat=-34.397&lon=150.644&page=20')
 
@@ -23,41 +27,22 @@ app.Router = Backbone.Router.extend({
       type: "GET",
       dataType: "json",
       data: {
-        lat: "60",
-        lon: "60",
-        page: "10",
+        lat: myLat,
+        lon: myLon,
+        // lat: "51.5072",
+        // lon: "0.1275",
+        page: "5",
       },
+
       success: function(data) {
         console.log("success", data);
+        
       },
+
       error: function(xhr, status, message) {
         console.log("error", status, message);
       }
     });
   }
-
   //     app.router.navigate("#posts/" + route, true);
-
-
-
-
-
-})
-
-
-
-
-//
-//   postShow: function(id) {
-//     console.log("PostShow is being fired", id);
-//     var post = app.blogPosts.get(id);
-//     var view = new app.PostView({model: post});
-//     view.render();
-//   },
-//
-//   postIndex: function() {
-//     console.log("PostIndex is being fired");
-//     var view = new app.AppView({collection: app.blogPosts});
-//     view.render();
-//   },
-// });
+});
