@@ -1,9 +1,6 @@
 var app = app || {};
 
 app.GoogleView = Backbone.View.extend({
-  model: app.myUserModel,
-
-  thisIsMyThisModel: this.model,
 
   el: "#meetup-list",
 

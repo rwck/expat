@@ -3,7 +3,6 @@
   <%= @params %>
   <%= @response %>
 
-  <header></header>
   <div class="header-title">
     <h1>Hello Ex Pats</h1>
     <%= @testing %>
@@ -13,16 +12,16 @@
 
   <!-- Structure of page -->
 
-  <div id="test-div">
-    <p>
-      This is some text.
-    </p>
-    <div class="map-box" id="googleMap" style="width:50%;height:40vh;"></div>
-  </div>
-
+  <!-- <div id="test-div"></div> -->
+  <div class="map-box" id="googleMap" style="width:50%;height:40vh;"></div>
   <div id="main-div"></div>
   <div id="new-user-form"></div>
   <div id="test"></div>
+  <div class="pictures">
+    <h1>Here are some pictures of ...
+    </h1>
+    <div class="image-container"></div>
+  </div>
 
   <!-- Templates -->
 
@@ -155,6 +154,22 @@
             </table>
           </div>
         </script>
+
+        <% if false %>
+
+        <div id="search-template">
+
+          <div class="flick-header"></div>
+          <h1>Flickr</h1>
+          <input class="search-input" type="text"><br>
+          <button class="flickr-search">Search</button>
+
+          <div id="enter-new-user-form-template"></div>
+          <div id="table-template"></div>
+
+        </div>
+
+        <% end %>
 
         <% content_for :js do %>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.onGoogleInitialise"></script>

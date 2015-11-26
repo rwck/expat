@@ -16,6 +16,12 @@ app.setUpMeetupListen = function() {
   });
 }
 
+app.setUpFlickrListen = function() {
+  app.myFlickrView.listenTo(app.myCurrentUser, "change:latLng", function() {
+    app.myFlickrView.flickrClicked(app.myCurrentUser.get("latLng"));
+  });
+};
+
 app.init = function() {
 
   app.myGeocoder = new google.maps.Geocoder();
@@ -52,6 +58,7 @@ app.init = function() {
         app.myCurrentUser.geocode();
         app.setUpMapListen();
         app.setUpMeetupListen();
+        app.setUpFlickrListen();
         app.myGoogleView.initMap();
 
       });
