@@ -76,6 +76,26 @@ button:active {
   box-shadow: none;
 }
 
+.actions input[type="submit"] {
+  font-size: 1rem;
+  padding: 0.75rem;
+  width: 50%;
+  border: none;
+  display: inline-block;
+  background-color: yellow;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+.actions input[type="submit"]:hover {
+  background-color: black;
+  color: yellow;
+}
+
+.actions input[type="submit"] {
+  outline: none;
+}
+
+
 button:hover {
   background-color: black;
   color: yellow;

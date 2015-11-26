@@ -30,7 +30,8 @@ app.FlickrView = Backbone.View.extend({
 
         $(".image-container").append(image);
       }
-    } else {
+    }
+    else {
       alert("No images for your request, please look for something else!");
     }
   },
@@ -47,7 +48,7 @@ app.FlickrView = Backbone.View.extend({
       type: "GET",
       data: {
         method: "flickr.places.findByLatLon",
-        api_key: "0f22f51640ea8a231f4f054db5d14ef8",
+        api_key: "1cdd20213d7a27a4a22b33d47277dabd",
         lat: lat,
         lon: lon,
       },
@@ -75,7 +76,7 @@ app.FlickrView = Backbone.View.extend({
         // method:
         method: "flickr.photos.search",
         place_id: placeId,
-        api_key: "0f22f51640ea8a231f4f054db5d14ef8",
+        api_key: "1cdd20213d7a27a4a22b33d47277dabd",
         format: "json",
         per_page: 8,
         page: 1
