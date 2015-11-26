@@ -1,6 +1,25 @@
 var app = app || {};
 
+app.onGoogleInitialise = function() {
+
+};
+
+app.setUpMapListen = function() {
+  app.myGoogleView.listenTo(app.myCurrentUser, "change:latLng", function() {
+    app.myGoogleView.setCentre(app.myCurrentUser.get("latLng"));
+  });
+}
+
+app.setUpMeetupListen = function() {
+  app.myGoogleView.listenTo(app.myCurrentUser, "change:latLng", function() {
+    app.myGoogleView.searchMeetup(app.myCurrentUser.get("latLng"));
+  });
+}
+
 app.init = function() {
+
+  app.myGeocoder = new google.maps.Geocoder();
+  app.myGoogleView = new app.GoogleView();
 
   app.myFlickrView = new app.FlickrView({
   });
@@ -29,6 +48,12 @@ app.init = function() {
           model: app.myCurrentUser,
         });
         app.myCurrentUserView.render();
+
+        app.myCurrentUser.geocode();
+        app.setUpMapListen();
+        app.setUpMeetupListen();
+        app.myGoogleView.initMap();
+
       });
     }
   });
@@ -49,7 +74,6 @@ app.init = function() {
     collection: app.myUserCollection,
   });
 
-  app.myGoogleView = new app.GoogleView();
   // app.myGoogleView.getGoogleMaps()
 
   app.myRouter = new app.Router();

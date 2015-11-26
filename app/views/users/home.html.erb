@@ -63,7 +63,7 @@
           <br>
           <input class="form-field" id="email-input-field" placeholder="email" type="email" value="<%%= user.email %>">
           <br>
-          <input class="form-field" id="address-input-field" placeholder="your location" type="text" value="<%%= user.location %>">
+          <input class="form-field" id="address-input-field" placeholder="your location" type="text" value="<%%= user.current_location %>">
           <br>
           <div class="button-box">
             <button class="new-user-submit-button" id="submit">Save</button>
@@ -128,7 +128,7 @@
           </script>
         </div>
 
-        <div id="meetup-list"></div>
+        <div class="meetup-list" id="meetup-list"></div>
 
         <script type="text/template">
           <div>
@@ -157,5 +157,5 @@
         </script>
 
         <% content_for :js do %>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.myGoogleView.initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.onGoogleInitialise"></script>
         <% end %>
