@@ -50,12 +50,7 @@ app.FlickrView = Backbone.View.extend({
       type: "GET",
       data: {
         method: "flickr.places.findByLatLon",
-<<<<<<< HEAD
-
         api_key: $("#boof").data("thang"),
-=======
-        api_key: "1cdd20213d7a27a4a22b33d47277dabd",
->>>>>>> 38bd35e... got some styling sorted out
         lat: lat,
         lon: lon,
       },
@@ -83,11 +78,7 @@ app.FlickrView = Backbone.View.extend({
         // method:
         method: "flickr.photos.search",
         place_id: placeId,
-<<<<<<< HEAD
         api_key: $("#boof").data("thang"),
-=======
-        api_key: "1cdd20213d7a27a4a22b33d47277dabd",
->>>>>>> 38bd35e... got some styling sorted out
         format: "json",
         per_page: 8,
         page: 1
