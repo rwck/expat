@@ -4,7 +4,6 @@ class MeetupController < ApplicationController
   class MeetupsQuery
     include HTTParty
     base_uri 'https://api.meetup.com'
-    # default_params
 
     def initialize(_service, lat, lon, page)
       @options = { query: { page: page, lon: lon, lat: lat } }
@@ -13,7 +12,7 @@ class MeetupController < ApplicationController
     def search(options = {})
       options[:query] = options
       self.class.get('/find/groups', options)
-      key = ENV["MEETUP_API"]
+      key = ENV["MEETUPS_API"]
     end
   end
 
@@ -27,7 +26,7 @@ class MeetupController < ApplicationController
     query = {
       lat: lat,
       lon: lon,
-      key: ENV["MEETUP_API"],
+      key: ENV["MEETUPS_API"],
       page: params[:page],
       radius: "smart",
     }.to_query
@@ -41,8 +40,6 @@ class MeetupController < ApplicationController
     response = HTTParty.get(url)
 
     @response = JSON.parse(response.body)
-
-    # pp response.body, response.code, response.message, response.headers.inspect
 
     render 'users/meetup_search'
     nil
