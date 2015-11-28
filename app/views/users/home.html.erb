@@ -1,33 +1,33 @@
-<div class="container">
+<div class="container" data-thing="<%= @meetup_key %>" id="boo">
   <div id="users-view"></div>
   <%= @params %>
   <%= @response %>
-
-  <div class="header-title">
-    <h1>Hello Ex Pats</h1>
-    <% if false %>
-    <%= @testing %>
-    <% end %>
-
-  </div>
+  <header>
+    <div class="header-title">
+      <% if false %>
+      <%= @testing %>
+      <% end %>
+    </div>
+  </header>
 
   <!-- Structure of page -->
 
-  <!-- <div id="test-div"></div> -->
-  <div class="top-container">
+  <div class="top-container" data-thang="<%= @flickr_key %>" id="boof">
     <div class="my-map-box" id="googleMap"></div>
     <div id="new-user-form"></div>
   </div>
 
-  <!-- <div id="main-div"></div> -->
-  <!-- <div id="test"></div> -->
-  <div class="top-container">
+  <div class="top-container" id="picture-box">
     <div class="pictures">
-      <h1>Here are some pictures of ...
+      <h1>
+        <span class="place"></span>
       </h1>
       <div class="image-container"></div>
     </div>
     <div class="meetup-list" id="meetup-list"></div>
+
+    <!-- <div class="meetup-list" id="meetup-list"></div> -->
+
   </div>
 
   <!-- Templates -->
@@ -65,8 +65,7 @@
     <!-- Template for form -->
 
     <script id="enter-new-user-form-template" type="text/template">
-      <div>
-
+      <div id="my-form">
         <form>
           <input class="form-field" id="firstname-input-field" placeholder="first name" type="text" value="<%%= user.firstname %>">
           <br>
@@ -80,107 +79,106 @@
             <button class="new-user-submit-button" id="submit">Save</button>
           </form>
         </div>
-      </script>
+      </div>
+    </script>
 
-      <script id="table-template" type="text/template">
-        <table class="name-table">
-          <thead>
+    <script id="table-template" type="text/template">
+      <table class="name-table">
+        <thead>
+          <tr>
+            <th class="name">
+              <span class="name">First name</span>
+            </th>
+            <th class="name">
+              <span class="name">Last name</span>
+            </th>
+            <th class="name">
+              <span class="name">Email</span>
+            </th>
+            <th class="name">
+              <span class="name">Location</span>
+            </th>
+            <th class="name">
+              <span class="name"></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <%% users.each(function (user) { %>
             <tr>
-              <th class="name">
-                <span class="name">First name</span>
-              </th>
-              <th class="name">
-                <span class="name">Last name</span>
-              </th>
-              <th class="name">
-                <span class="name">Email</span>
-              </th>
-              <th class="name">
-                <span class="name">Location</span>
-              </th>
-              <th class="name">
-                <span class="name"></span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
+              <td class="firstname">
+                <%%= user.get("firstname") %>
+              </td>
+              <td class="lastname">
+                <%%= user.get("lastname") %>
+              </td>
+              <td class="email">
+                <%%= user.get("email") %>
+              </td>
+              <td class="location">
+                <%%= user.get("current_location") %>
+              </td>
+              <td class="location">
+                <div class="button-box">
+                  <button class="view-button" id="submit">View</button>
 
-            <%% users.each(function (user) { %>
-              <tr>
-                <td class="firstname">
-                  <%%= user.get("firstname") %>
                 </td>
-                <td class="lastname">
-                  <%%= user.get("lastname") %>
-                </td>
-                <td class="email">
-                  <%%= user.get("email") %>
-                </td>
-                <td class="location">
-                  <%%= user.get("current_location") %>
-                </td>
-                <td class="location">
-                  <div class="button-box">
-                    <button class="view-button" id="submit">View</button>
 
-                  </td>
+              </tr>
+              <%% }); %>
 
-                </tr>
-                <%% }); %>
-
-              </tbody>
-            </table>
-          </script>
-
-          <script>
-            // $(document).ready(function () {
-            //   initialiseGmaps()
-            // })
-          </script>
-        </div>
-
-        <script type="text/template">
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <td>
-                    City
-                  </td>
-                  <td>
-                    Meetup Group
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <td>
-                  <%%  %>
-                </td>
-                <td>
-                  <%%  %>
-                </td>
-              </tbody>
-
-            </table>
-          </div>
+            </tbody>
+          </table>
         </script>
 
-        <% if false %>
+        <script>
+          // $(document).ready(function () {
+          //   initialiseGmaps()
+          // })
+        </script>
+      </div>
 
-        <div id="search-template">
+      <script type="text/template">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <td>
+                  City
+                </td>
+                <td>
+                  Meetup Group
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <td>
+                <%%  %>
+              </td>
+              <td>
+                <%%  %>
+              </td>
+            </tbody>
 
-          <div class="flick-header"></div>
-          <h1>Flickr</h1>
-          <input class="search-input" type="text"><br>
-          <button class="flickr-search">Search</button>
-
-          <div id="enter-new-user-form-template"></div>
-          <div id="table-template"></div>
-
+          </table>
         </div>
+      </script>
 
-        <% end %>
+      <% if false %>
 
-        <% content_for :js do %>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO2czLXUZis1LInOHGPLxNxFjkTx34X58&signed_in=true&callback=app.onGoogleInitialise"></script>
-        <% end %>
+      <div id="search-template">
+
+        <div class="flick-header"></div>
+        <h1>Flickr</h1>
+        <input class="search-input" type="text"><br>
+        <button class="flickr-search">Search</button>
+
+        <div id="enter-new-user-form-template">asdfsdf</div>
+        <div id="table-template"></div>
+
+      </div>
+      <% end %>
+      <% content_for :js do %>
+      <script ascync defer src="<%= @test %>"></script>
+      <% end %>

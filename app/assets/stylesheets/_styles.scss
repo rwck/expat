@@ -1,8 +1,25 @@
 * {
   box-sizing: border-box;
 }
+
 $heading-text: Raleway, sans-serif;
 $body-text: Roboto, sans-serif;
+
+@media only screen and (max-width: 800px) {
+  .top-container {
+  }
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .top-container {
+    position: relative;
+    height: 50vh;
+  }
+}
 
 @mixin my-heading {
   font-family: $heading-text;
@@ -25,11 +42,6 @@ h1 {
   width: 90%;
   margin: 0 auto;
 }
-
-.top-container {
-  position: relative;
-  height: 50vh;
-};
 
 .name {
   @include my-heading;

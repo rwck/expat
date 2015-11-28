@@ -1,10 +1,24 @@
-#new-user-form {
-  width: 45%;
-  position: absolute;
-  right: 0;
-  top: 5vh;
+@media only screen and (max-width: 800px) {
+  #my-form {
+    width: 100%;
+    // position: relative;
+    top: 5vh;
+    // position: absolute;
+    display: block;
+  }
 }
 
+@media only screen and (min-width: 801px) {
+  #new-user-form {
+    width: 45%;
+    position: absolute;
+    right: 0;
+    top: 5vh;
+  }
+  .my-form {
+    position: relative;
+  }
+}
 
 input[type="text"] {
   @include my-body-text;
@@ -76,6 +90,52 @@ button:active {
   box-shadow: none;
 }
 
+.actions input[type="submit"] {
+  font-size: 1rem;
+  padding: 0.75rem;
+<<<<<<< HEAD
+  width: 10rem;
+  border: none;
+  display: inline-block;
+  background-color: yellow;
+  margin: 1.5rem 0;
+=======
+  width: 50%;
+  border: none;
+  display: inline-block;
+  background-color: yellow;
+>>>>>>> 38bd35e... got some styling sorted out
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+.actions input[type="submit"]:hover {
+  background-color: black;
+  color: yellow;
+}
+
+<<<<<<< HEAD
+input[type="checkbox"] {
+  margin: 1.5rem 0;
+}
+
+input[type="password"] {
+  @include my-body-text;
+  text-align: right;
+  border: none;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 0.5rem 0;
+}
+
+=======
+>>>>>>> 38bd35e... got some styling sorted out
+.actions input[type="submit"] {
+  outline: none;
+}
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 38bd35e... got some styling sorted out
 button:hover {
   background-color: black;
   color: yellow;
