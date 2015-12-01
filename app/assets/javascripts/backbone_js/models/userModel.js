@@ -4,8 +4,19 @@ app.UserModel = Backbone.Model.extend({
   urlRoot: 'users',
 
   initialize: function() {
-    this.on("change:current_location", this.geocode)
+    this.on("change:current_location", this.geocode);
+    this.on("change:current_location", this.getPlaceName)
   },
+
+  getPlaceName: function() {
+    console.log("firing get placename function");
+    var placeText = $("#address-input-field").val
+    var placeName = app.myCurrentUser.get("current_location");
+    $("#picture-box .pictures .place").html("Some pictures of  " + toTitleCase(placeName));
+  },
+
+
+
 
   geocode: function() {
     var thisIsMyThis = this;

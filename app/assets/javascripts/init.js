@@ -24,6 +24,10 @@ app.setUpFlickrListen = function() {
 
 app.init = function() {
 
+  // app.myHomeView = new app.HomeView();
+  // app.myHomeView.render();
+
+
   app.myGeocoder = new google.maps.Geocoder();
   app.myGoogleView = new app.GoogleView();
 
@@ -56,6 +60,7 @@ app.init = function() {
         app.myCurrentUserView.render();
 
         app.myCurrentUser.geocode();
+        app.myCurrentUser.getPlaceName();
         app.setUpMapListen();
         app.setUpMeetupListen();
         app.setUpFlickrListen();
