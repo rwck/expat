@@ -25,6 +25,7 @@
 //= require_tree ./backbone_js/views
 
 //= require init
+//= require donExtra
 
 
 
