@@ -1,5 +1,4 @@
-# Ex pat website notes
-
+# Expat website notes
 
 ## Create the new rails app
 `rails new expat --skip-turbolinks --database=postgresql`

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users 
-  # devise_for :admins
-
+  
   get '/users/current' => 'users#current', as: :current_user
 
   get '/users/meetup' => 'users#meetup'
