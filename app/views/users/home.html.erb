@@ -4,9 +4,6 @@
   <%= @response %>
   <header>
     <div class="header-title">
-      <% if false %>
-      <%= @testing %>
-      <% end %>
     </div>
   </header>
 
@@ -27,7 +24,6 @@
     <div class="meetup-list" id="meetup-list"></div>
 
     <!-- <div class="meetup-list" id="meetup-list"></div> -->
-
   </div>
 
   <!-- Templates -->
@@ -37,46 +33,27 @@
     <tr></tr>
   </script>
 
-  <% if false %>
+  <!-- Template for Meetup Box -->
 
-  <div id="template-1">
-    <div class="testclass">
-      Here is some stuff
-    </div>
-    <div>
-      <h1>Here is a title</h1>
-      <p>
-        And here is some more stuff. This is coming from the Backbone template.
-      </p>
-    </div>
-
-    <hr>
-    <% end %>
-
-    <% if false %>
-    <div id="put-table-here"></div>
-    <hr>
-    <% end %>
-
-    <!-- Template for Meetup Box -->
-
-    <script id="meetup-box-template" type="text/template"></script>
+  <script id="meetup-box-template" type="text/template"></script>
 
     <!-- Template for form -->
 
     <script id="enter-new-user-form-template" type="text/template">
       <div id="my-form">
         <form>
+          <% if false %>
           <input class="form-field" id="firstname-input-field" placeholder="first name" type="text" value="<%%= user.firstname %>">
           <br>
           <input class="form-field" id="lastname-input-field" placeholder="last name" type="text" value="<%%= user.lastname %>">
           <br>
           <input class="form-field" id="email-input-field" placeholder="email" type="email" value="<%%= user.email %>">
           <br>
+          <% end %>
           <input class="form-field" id="address-input-field" placeholder="your location" type="text" value="<%%= user.current_location %>">
           <br>
           <div class="button-box">
-            <button class="new-user-submit-button" id="submit">Save</button>
+            <button class="new-user-submit-button" id="submit">Search</button>
           </form>
         </div>
       </div>

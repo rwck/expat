@@ -20,9 +20,7 @@ class UsersController < ApplicationController
 #     format.json { render :show, status: :ok, location: # @params }
 
 
-  def search
-    @daisy = "This is Daisy flickr API testing coming from Rails"
-  end
+
 
 
   def home
