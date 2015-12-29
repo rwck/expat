@@ -18,14 +18,7 @@ class UsersController < ApplicationController
 #   @params = params
 #   respond_to do |format|
 #     format.json { render :show, status: :ok, location: # @params }
-
-
-
-
-
   def home
-    @testing = "This is Donald testing how this works. Here is variable coming from Rails"
-
     @meetup_key = ENV["MEETUPS_API"]
     @flickr_key = ENV["FLICKR_API"]
 

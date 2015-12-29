@@ -34,7 +34,7 @@ app.FlickrView = Backbone.View.extend({
       }
     }
     else {
-      alert("No images for your request, please look for something else!");
+      alert("Flickr isn't coming up with the goods. Try somewhere else");
     }
   },
 

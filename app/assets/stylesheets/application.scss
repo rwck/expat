@@ -1,10 +1,19 @@
 @import 'normalize';
+
+// Responsive grid system
+
+@import 'col';
+@import '3cols';
+@import '12cols';
+
+// //////
+
 @import 'styles';
-// @import "more_styles";
 @import 'forms';
 @import 'table';
-@import 'picture-container';
+// @import 'picture-container';
 @import 'map-box';
-@import 'meetup-box';
+// @import 'meetup-box';
 
+// Dev - useful boxes round stuff
 // @import 'dev';

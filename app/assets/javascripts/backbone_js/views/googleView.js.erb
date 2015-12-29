@@ -37,18 +37,24 @@ app.GoogleView = Backbone.View.extend({
         key: $("#boo").data("thing"),
         lat: latitude,
         lon: longitude,
-        page: 10
+        page: Math.floor(Math.random() * 10) + 1
       },
 
       complete: function(result) {
         var bigResult = result.responseJSON.data;
         console.log(bigResult);
 
+        var placeText = $("#address-input-field").val
+        var placeName = app.myCurrentUser.get("current_location");
+
         thisIsMyThis.$el.empty();
         for (var i = 0; i < bigResult.length; i++) {
-          thisIsMyThis.$el.append(bigResult[i].link + "<br>" + bigResult[i].description);
+          // thisIsMyThis.$el.append("Here are some meetups<br>" + bigResult[i].link + "<br>" + bigResult[i].description);
+
+          $(".meetup-list").html("<h1>Here is a random meetup in " + toTitleCase(placeName) +  "</h1><br>" + bigResult[i].link + "<br>" + bigResult[i].description);
         }
       },
+
 
       error: function(xHR, status, message) {
         alert(message);
