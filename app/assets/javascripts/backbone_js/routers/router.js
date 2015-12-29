@@ -19,9 +19,7 @@ app.Router = Backbone.Router.extend({
     // myLat = app.myGoogleView.bigResults[0];
     // myLon = app.myGoogleView.bigResults[1];
 
-
-
-    $.ajax({
+  $.ajax({
       url: '/meetups.json',
       context: this,
       type: "GET",
@@ -36,7 +34,6 @@ app.Router = Backbone.Router.extend({
 
       success: function(data) {
         console.log("success", data);
-
       },
 
       error: function(xhr, status, message) {

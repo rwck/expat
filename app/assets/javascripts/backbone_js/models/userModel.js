@@ -15,9 +15,6 @@ app.UserModel = Backbone.Model.extend({
     $("#picture-box .pictures .place").html("Some pictures of  " + toTitleCase(placeName));
   },
 
-
-
-
   geocode: function() {
     var thisIsMyThis = this;
 

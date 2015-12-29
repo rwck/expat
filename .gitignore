@@ -12,7 +12,7 @@
 !/log/.keep
 /tmp
 
-.env
+*.env
 /old_readme.md
 /questions_for_greg.md
 /initial_presentation
